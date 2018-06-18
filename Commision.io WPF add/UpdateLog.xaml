@@ -1,0 +1,88 @@
+﻿<Page x:Class="Commision.io_WPF_add.UpdateLog"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Commision.io_WPF_add"
+      mc:Ignorable="d" 
+      TextElement.FontSize="13"
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="UpdateLog">
+
+    <Grid>
+        <StackPanel Margin="10">
+            <!-- ADDED -->
+            <Grid Margin="10" Height="20" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Left" Foreground="#FF57DA92" VerticalAlignment="Center" FontWeight="Bold">
+                ADDED
+                    </TextBlock>
+                    
+                </StackPanel>
+            </Grid>
+            
+            <Rectangle Fill="#FF57DA92" Height="1" VerticalAlignment="Center" Margin="5,0,0,10"/>
+            
+            <StackPanel Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Height="5" Width="5" Fill="#FF494949"/>
+                    <TextBlock Text="[6/15/2018] - Added An Upper Bar" Margin="10,0,0,0" FontSize="12" Foreground="White" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Height="5" Width="5" Fill="#FF494949"/>
+                    <TextBlock Text="[6/15/2018] - Added Dragable Functionallity to bars" Margin="10,0,0,0" FontSize="12" Foreground="White" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Height="5" Width="5" Fill="#FF494949"/>
+                    <TextBlock Text="[6/15/2018] - Added An UpdateLog Tab" Margin="10,0,0,0" FontSize="12" Foreground="White" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Height="5" Width="5" Fill="#FF494949"/>
+                    <TextBlock Text="[6/15/2018] - Move settings so that it appears main window and not in dialog" Margin="10,0,0,0" FontSize="12" Foreground="White" />
+                </StackPanel>
+            </StackPanel>
+
+            <!-- REMOVED -->
+            <Grid Margin="10" Height="20" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Left" Foreground="#FFDA5757" VerticalAlignment="Center" FontWeight="Bold">
+                REMOVED
+                    </TextBlock>
+                    <Grid>
+                        
+                    </Grid>
+                    
+                </StackPanel>
+            </Grid>
+
+            <Rectangle Fill="#FFDA5757" Height="1" VerticalAlignment="Center" Margin="5,0,0,10"/>
+            
+            <StackPanel Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Height="5" Width="5" Fill="#FF494949"/>
+                    <TextBlock Text="[6/15/2018] - Sidebars / SideMenu removed" Margin="10,0,0,0" FontSize="12" Foreground="White" />
+                </StackPanel>
+                
+            </StackPanel>
+            
+            <!-- WORKING ON -->
+            <Grid Margin="10" Height="20" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Left" Foreground="#FFDADA57" VerticalAlignment="Center" FontWeight="Bold">
+                WORKING ON
+                    </TextBlock>
+                    <Grid>
+                        
+                    </Grid>
+                </StackPanel>
+            </Grid>
+
+            <Rectangle Fill="#FFDADA57" Height="1" VerticalAlignment="Center" Margin="5,0,0,10"/>
+            
+            <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+                <Ellipse Height="5" Width="5" Fill="#FF494949"/>
+                <TextBlock Text="[??/??/????] - Retractable Upper Tab" Margin="10,0,0,0" FontSize="12" Foreground="White"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

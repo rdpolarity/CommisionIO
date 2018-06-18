@@ -1,0 +1,10 @@
+C:\Users\admin\source\repos\Commision.io WPF add\View Data\bin\Debug\View Data.exe.config
+C:\Users\admin\source\repos\Commision.io WPF add\View Data\bin\Debug\View Data.exe
+C:\Users\admin\source\repos\Commision.io WPF add\View Data\bin\Debug\View Data.pdb
+C:\Users\admin\source\repos\Commision.io WPF add\View Data\obj\Debug\View Data.csprojResolveAssemblyReference.cache
+C:\Users\admin\source\repos\Commision.io WPF add\View Data\obj\Debug\View_Data.Form1.resources
+C:\Users\admin\source\repos\Commision.io WPF add\View Data\obj\Debug\View_Data.Properties.Resources.resources
+C:\Users\admin\source\repos\Commision.io WPF add\View Data\obj\Debug\View Data.csproj.GenerateResource.Cache
+C:\Users\admin\source\repos\Commision.io WPF add\View Data\obj\Debug\View Data.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\Commision.io WPF add\View Data\obj\Debug\View Data.exe
+C:\Users\admin\source\repos\Commision.io WPF add\View Data\obj\Debug\View Data.pdb
