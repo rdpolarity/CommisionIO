@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Commision.io_WPF_add"
+        xmlns:domain1="clr-namespace:MaterialDesignDemo.Domain"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="WindowSet" 
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -42,7 +43,7 @@
 
     <Grid>
 
-
+        
 
         <!--#region Help Message-->
         <TextBlock x:Name="help_box" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#DDFFFFFF" TextAlignment="Center" FontSize="24">
@@ -53,11 +54,7 @@
         <!--#region EDIT & Commision box-->
         <Grid x:Name="ADD_GRID" Margin="0,69,0,0">
 
-
-
-            <materialDesign:DialogHost x:Name="edit_dialog">
-
-
+            <materialDesign:DialogHost x:FieldModifier="public" x:Name="edit_dialog">
 
                 <materialDesign:DialogHost.DialogContent>
                     <StackPanel
@@ -155,7 +152,7 @@
         </Grid>
         <!--#endregion-->
 
-        <!--#region Windowbar-->
+            <!--#region Windowbar-->
         <Grid>
             <Grid Margin="0,69,0,0">
                 <dragablz:TabablzControl Padding="16" x:Name="tabheader" BorderThickness="0" SelectionChanged="tabheader_SelectionChanged">
@@ -259,7 +256,14 @@
                         <TextBox x:Name="Commision_Title"
                                                         materialDesign:HintAssist.Hint="Title" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                                         Margin="10"
-                                                        HorizontalAlignment="Stretch" />
+                                                        HorizontalAlignment="Stretch">
+                            <TextBox.Text>
+                                <Binding
+                                 Path="Name"
+                                 UpdateSourceTrigger="PropertyChanged">
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <TextBox x:Name="Commision_Cost"
                                                         materialDesign:HintAssist.Hint="Cost" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                                         Margin="10"
@@ -299,19 +303,17 @@
                         <DatePicker x:Name="Commision_Deadline"
                                                         HorizontalAlignment="Stretch"
                                                         Margin="10,25,10,10"
-                                                        materialDesign:HintAssist.Hint="Pick Date"
+                                                          materialDesign:HintAssist.Hint="Pick Date"
                                                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-
-                        <Button
-                    Margin="25"
-                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=addhost}"
-                    Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-                    ToolTip="Add A Commision" VerticalAlignment="Bottom" materialDesign:ShadowAssist.ShadowDepth="Depth3" HorizontalAlignment="Right" Width="50" Height="50">
-                            <materialDesign:PackIcon
-                        Kind="Plus"
-                        Height="24"
-                        Width="24" />
-                        </Button>
+                        <!--NOTES-->
+                       <TextBox x:Name="Commision_Notes"
+                        Style="{StaticResource MaterialDesignTextFieldBoxTextBox}"
+                        VerticalAlignment="Top"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        MaxWidth="300"
+                        materialDesign:HintAssist.Hint="Notes"
+                        />
 
                         <Grid>
                             <!--- Accept Button -->
@@ -319,7 +321,7 @@
                                                             Style="{StaticResource MaterialDesignFlatButton}"
                                                             IsDefault="True"
                                                             Margin="0 8 8 0"
-                                                            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                                            
                                                             Click="ADD_COMMISION_ACCEPT_BUTTON_Click" HorizontalAlignment="Left">
                                 <Button.CommandParameter>
                                     <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
@@ -328,6 +330,9 @@
                                 </Button.CommandParameter>
                                 <materialDesign:PackIcon Kind="Check" Width="16" Height="16" />
                             </Button>
+
+                            <TextBlock x:Name="txt_warning" Foreground="#FFFF0B0B" HorizontalAlignment="Center" FontSize="7" VerticalAlignment="Center"> PLEASE FILL IN EMPTY FIELDS</TextBlock>
+                            
                             <!--- Close Button -->
                             <Button
                                                             Style="{StaticResource MaterialDesignFlatButton}"
@@ -412,6 +417,8 @@
 
         <materialDesign:DialogHost Name="addhost"/>
         
+        <Ellipse Fill="#7FF4F4F5" HorizontalAlignment="Left" Height="100" Margin="158,622,0,-259" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+
         <!--!!!archived!!!-->
         
         <!--#region Menu Bar-->

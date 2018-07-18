@@ -88,3 +88,7 @@ C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io.csproj.CoreCompileInputs.cache
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io WPF add.exe
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io WPF add.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\TEST.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\TEST.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision Profile Window.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision Profile Window.baml

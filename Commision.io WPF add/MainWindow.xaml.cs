@@ -28,6 +28,8 @@ namespace Commision.io_WPF_add
             //time start
             SetTimerInterrupts();
 
+            txt_warning.Visibility = Visibility.Hidden;
+
             //loadxml();
 
             Add_Contact.Visibility = System.Windows.Visibility.Hidden;
@@ -210,6 +212,8 @@ namespace Commision.io_WPF_add
         //constant checker
         private void OnTimerTick(object sender, EventArgs e)
         {
+
+
             var var2 = instances.compage.lbTodoList.SelectedIndex;
             if (instances.compage.lbTodoList.SelectedItems.Count > 0)
             {
@@ -301,6 +305,7 @@ namespace Commision.io_WPF_add
         public static string cost;
         public static string client;
         public static string deadline;
+        public static string notes;
 
 
         public static bool edit;
@@ -311,6 +316,7 @@ namespace Commision.io_WPF_add
             public string Cost { get; set; }
             public string Client { get; set; }
             public string Deadline { get; set; }
+            public string Notes { get; set; }
             public int Completion { get; set; }
             public string BindedID { get; set; }
         }
@@ -346,6 +352,7 @@ namespace Commision.io_WPF_add
             //savexml();
         }
 
+
         //Adds a commision to list and xml
         public void ADD_COMMISION_ACCEPT_BUTTON_Click(object sender, RoutedEventArgs e)
         {
@@ -353,13 +360,39 @@ namespace Commision.io_WPF_add
             cost = "$" + Commision_Cost.Text;
             client = Commision_Client.Text;
             deadline = Commision_Deadline.Text;
+            notes = Commision_Notes.Text;
 
-            if (title == "") { title = "?"; }
-            if (cost == "") { cost = "?"; }
-            if (client == "") { client = "?"; }
-            if (deadline == "") { deadline = "?"; }
-          
-            instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = title, Completion = 45, Cost = cost, Client = client, Deadline = deadline });
+            if (Commision_Title.Text == "") { Commision_Title.Foreground = Brushes.Red; }
+            else if (Commision_Title.Text != "") { Commision_Title.Foreground = Brushes.Black; }
+
+            if (Commision_Cost.Text == "") { Commision_Cost.Foreground = Brushes.Red; }
+            else if (Commision_Cost.Text != "") { Commision_Cost.Foreground = Brushes.Black; }
+
+            if (Commision_Client.Text == "") { Commision_Client.Foreground = Brushes.Red; ; }
+            else if (Commision_Client.Text != "") { Commision_Client.Foreground = Brushes.Black; }
+
+            if (Commision_Deadline.Text == "") { Commision_Deadline.Foreground = Brushes.Red; ; }
+            else if (Commision_Deadline.Text != "") { Commision_Deadline.Foreground = Brushes.Black; }
+
+            if (title != "")
+            {
+                if (cost != "")
+                {
+                    if (client != "")
+                    {
+                        if (deadline != "")
+                        {
+                            DialogHost.CloseDialogCommand.Execute(new object(), null);
+                            instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = title, Completion = 45, Cost = cost, Client = client, Deadline = deadline, Notes = notes });
+                            txt_warning.Visibility = Visibility.Hidden;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                txt_warning.Visibility = Visibility.Visible;
+            }
 
             //savexml();
         }
@@ -416,7 +449,7 @@ namespace Commision.io_WPF_add
 
         private void lbTodoList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            System.Windows.Forms.MessageBox.Show("Test");
         }
 
         private void cost_5_Click(object sender, RoutedEventArgs e)

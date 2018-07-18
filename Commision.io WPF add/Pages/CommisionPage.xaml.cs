@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +36,11 @@ namespace Commision.io_WPF_add
 
         private void lbTodoList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            
+        }
 
+        private void btn_reciet_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

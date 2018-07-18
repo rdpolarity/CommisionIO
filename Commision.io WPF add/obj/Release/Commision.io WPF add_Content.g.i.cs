@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons8_paint.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("gray-polygonal-background-picture-id514230814.jpg")]
 
 
