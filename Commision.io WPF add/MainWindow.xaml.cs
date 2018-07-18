@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using System.Windows.Media.Animation;
 
 namespace Commision.io_WPF_add
 {
@@ -276,7 +277,7 @@ namespace Commision.io_WPF_add
 
         private void CLOSEBUTTON_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Windows[0].Close();
         }
 
         private void Maximize_Click(object sender, RoutedEventArgs e)
@@ -516,16 +517,19 @@ namespace Commision.io_WPF_add
             }
         }
 
+        DoubleAnimation close = new DoubleAnimation(70, TimeSpan.FromSeconds(0.2));
+        DoubleAnimation open = new DoubleAnimation(509.457, TimeSpan.FromSeconds(0.2));
+
         private void MenuToggleButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            WindowSet.BeginAnimation(Window.HeightProperty, close);
         }
 
 
 
         private void MenuToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            WindowSet.BeginAnimation(Window.HeightProperty, open);
         }
     }
 }

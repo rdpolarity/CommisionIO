@@ -15,6 +15,7 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         Title="CommisionPage">
 
+
     <Page.Resources>
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="Black" />
@@ -325,90 +326,79 @@
     </Page.Resources>
 
     <Grid>
-
-
-
         <ScrollViewer PreviewMouseWheel="moveplease" x:Name="CommisionViewer">
-            <Grid>
-                
-                <ListView x:FieldModifier="public" Background="{DynamicResource MaterialDesignBody}" Name="lbTodoList" HorizontalContentAlignment="Stretch" MouseDoubleClick="lbTodoList_MouseDoubleClick">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseDoubleClick">
-                            <i:InvokeCommandAction Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
+            <ListView x:FieldModifier="public" Background="{DynamicResource MaterialDesignBody}" Name="lbTodoList" HorizontalContentAlignment="Stretch" MouseDoubleClick="lbTodoList_MouseDoubleClick">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
 
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <materialDesign:TransitioningContent OpeningEffectsOffset="{materialDesign:IndexedItemOffsetMultiplierExtension 0:0:0.1}" OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <materialDesign:TransitioningContent OpeningEffectsOffset="{materialDesign:IndexedItemOffsetMultiplierExtension 0:0:0.1}" OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
 
-                                <materialDesign:ColorZone x:Name="CLIENT_BOX"
+                            <materialDesign:ColorZone x:Name="CLIENT_BOX"
                                     Background="{DynamicResource MaterialDesignPaper}"
                                     Mode="Standard"
                                     CornerRadius="3"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth2"
                                     Margin="5" Height="88">
-                                    <Grid>
-                                        <StackPanel
+                                <Grid>
+                                    <StackPanel
                                             Orientation="Horizontal">
-                                            <ToggleButton x:Name="Client_Profile"
+                                        <ToggleButton x:Name="Client_Profile"
                                             Content="H"
                                             Style="{StaticResource MaterialDesignActionAccentToggleButton}"
                                             ToolTip="MaterialDesignActionToggleButton" Margin="10" Height="60" Width="60"/>
-                                            <Grid>
-                                                <StackPanel VerticalAlignment="Center">
-                                                    <TextBlock x:Name="Commision_Title_Box"
+                                        <Grid>
+                                            <StackPanel VerticalAlignment="Center">
+                                                <TextBlock x:Name="Commision_Title_Box"
                                                     VerticalAlignment="Center"
                                                     Margin="16 0 0 0"
                                                     Text="{Binding Title}">
 
-                                                    </TextBlock>
-                                                    <TextBlock x:Name="Commision_Client_Box"
+                                                </TextBlock>
+                                                <TextBlock x:Name="Commision_Client_Box"
                                                     VerticalAlignment="Center"
                                                     Margin="16,0,0,0" FontSize="11"
                                                     Text="{Binding Client}">
 
-                                                    </TextBlock>
-                                                </StackPanel>
-                                            </Grid>
-                                        </StackPanel>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </Grid>
+                                    </StackPanel>
 
-                                        <!-- Faviorate Panel -->
+                                    <!-- Faviorate Panel -->
 
-                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20" Orientation="Horizontal">
-                                            <TextBlock x:Name="Commision_Date_Box"
+                                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20" Orientation="Horizontal">
+                                        <TextBlock x:Name="Commision_Date_Box"
                                             VerticalAlignment="Center"
                                             Margin="10"
                                             Text="{Binding Deadline}">
 
-                                            </TextBlock>
-                                            <TextBlock x:Name="Commision_Cost" VerticalAlignment="Center"
+                                        </TextBlock>
+                                        <TextBlock x:Name="Commision_Cost" VerticalAlignment="Center"
                                             Text="{Binding Cost}">
 
-                                            </TextBlock>
-                                            <ToggleButton
+                                        </TextBlock>
+                                        <ToggleButton
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             ToolTip="MaterialDesignFlatPrimaryToggleButton"
                                             IsChecked="False" Background="#FFFFB3B3" Foreground="Red" Margin="20,0,0,0">
-                                                <materialDesign:PackIcon
+                                            <materialDesign:PackIcon
                                                 Kind="Heart"
                                                 Height="21"
                                                 Width="21" />
-                                            </ToggleButton>
-                                        </StackPanel>
-                                    </Grid>
-                                </materialDesign:ColorZone>
+                                        </ToggleButton>
+                                    </StackPanel>
+                                </Grid>
+                            </materialDesign:ColorZone>
 
-                            </materialDesign:TransitioningContent>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListView>
-                
-                <StackPanel x:Name="ADD_STACK">
-
-                </StackPanel>
-            </Grid>
-
+                        </materialDesign:TransitioningContent>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListView>
         </ScrollViewer>
 
     </Grid>
