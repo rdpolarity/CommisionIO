@@ -49,6 +49,9 @@ namespace Commision.io_WPF_add
         {
             EnableBlur();
 
+            instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = "TitleTest 1", Cost = "CostTest 1", Client = "ClientTest 1", Deadline = "DeadlineTest 1", Notes = "NotesTest 1" });
+            instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = "TitleTest 2", Cost = "CostTest 2", Client = "ClientTest 2", Deadline = "DeadlineTest 2", Notes = "NotesTest 2" });
+
             com_instance.Content = instances.compage;
             con_instance.Content = instances.conpage;
             log_instance.Content = instances.logpage;
@@ -219,7 +222,6 @@ namespace Commision.io_WPF_add
             {
                 var2 = instances.compage.lbTodoList.Items.IndexOf(instances.compage.lbTodoList.SelectedItems[0]);
                 deleteID = Convert.ToString(var2);
-                Console.WriteLine(var2);
             }
 
             //finds total and hides / shows help message
@@ -434,17 +436,17 @@ namespace Commision.io_WPF_add
             //XmlDocObj.Save(@"C:\Users\admin\source\repos\Commision.io WPF add\Commision.io WPF add\CommisionData.xml");
         }
 
-        private void ADD_COMMISION_ACCEPT_BUTTON_Edit_Click(object sender, RoutedEventArgs e)
+        public static void setedit()
         {
             int index = instances.compage.lbTodoList.SelectedIndex;
             instances.compage.lbTodoList.Items.RemoveAt(index);
 
-            title = Commision_Title_Edit.Text;
-            cost = "$" + Commision_Cost_Edit.Text;
-            client = Commision_Client_Edit.Text;
-            deadline = Commision_Deadline_Edit.Text;
+            title = "a";
+            cost = "a";
+            client = "a";
+            deadline = "a";
 
-            instances.compage.lbTodoList.Items.Insert(index, new TodoItem() { Title = title, Completion = 45, Cost = cost, Client = client, Deadline = deadline });
+            instances.compage.lbTodoList.Items.Insert(1, new TodoItem() { Title = title, Completion = 45, Cost = cost, Client = client, Deadline = deadline });
         }
 
         private void lbTodoList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -455,31 +457,26 @@ namespace Commision.io_WPF_add
         private void cost_5_Click(object sender, RoutedEventArgs e)
         {
             Commision_Cost.Text = "5";
-            Commision_Cost_Edit.Text = "5";
         }
 
         private void cost_25_Click(object sender, RoutedEventArgs e)
         {
             Commision_Cost.Text = "25";
-            Commision_Cost_Edit.Text = "25";
         }
 
         private void cost_50_Click(object sender, RoutedEventArgs e)
         {
             Commision_Cost.Text = "50";
-            Commision_Cost_Edit.Text = "50";
         }
 
         private void cost_75_Click(object sender, RoutedEventArgs e)
         {
             Commision_Cost.Text = "75";
-            Commision_Cost_Edit.Text = "75";
         }
 
         private void cost_100_Click(object sender, RoutedEventArgs e)
         {
             Commision_Cost.Text = "100";
-            Commision_Cost_Edit.Text = "100";
         }
 
         public static bool hidehelp = false;

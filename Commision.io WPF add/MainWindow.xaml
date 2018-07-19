@@ -17,8 +17,8 @@
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-    xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
-    WindowStartupLocation="CenterScreen"
+        xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+        WindowStartupLocation="CenterScreen"
     
         x:Class="Commision.io_WPF_add.MainWindow"
         mc:Ignorable="d"
@@ -55,93 +55,6 @@
         <Grid x:Name="ADD_GRID" Margin="0,69,0,0">
 
             <materialDesign:DialogHost x:FieldModifier="public" x:Name="edit_dialog">
-
-                <materialDesign:DialogHost.DialogContent>
-                    <StackPanel
-                        Margin="16">
-
-                        <!-- Edit Commision Dialog -->
-                        <TextBlock HorizontalAlignment="Center">
-                            EDIT COMMISION
-                        </TextBlock>
-                        <TextBox x:Name="Commision_Title_Edit"
-                        materialDesign:HintAssist.Hint="Title" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        Margin="10"
-                        HorizontalAlignment="Stretch" />
-                        <TextBox x:Name="Commision_Cost_Edit"
-                        materialDesign:HintAssist.Hint="Cost" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        Margin="10"
-                        HorizontalAlignment="Stretch" />
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="cost_5_edit" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cost_5_Click">$5</Button>
-                            <Button x:Name="cost_25_edit" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cost_25_Click">$25</Button>
-                            <Button x:Name="cost_50_edit" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cost_50_Click">$50</Button>
-                            <Button x:Name="cost_75_edit" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cost_75_Click">$75</Button>
-                            <Button x:Name="cost_100_edit" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cost_100_Click">$100</Button>
-                        </StackPanel>
-                        <ComboBox x:Name="Commision_Client_Edit"
-                        materialDesign:HintAssist.Hint="Client"
-                        MinWidth="72"
-                        Margin="10,20,10,10"
-                        VerticalAlignment="Bottom"
-                        IsEditable="True"
-                        ItemsSource="{Binding LongListToTestComboVirtualization}" Background="White">
-                            <ComboBox.Text>
-                                <Binding
-                                Path="SelectedTextTwo"
-                                Mode="TwoWay"
-                                UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </ComboBox.Text>
-                            <ComboBox.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <VirtualizingStackPanel/>
-                                </ItemsPanelTemplate>
-                            </ComboBox.ItemsPanel>
-                        </ComboBox>
-
-                        <DatePicker x:Name="Commision_Deadline_Edit"
-                            HorizontalAlignment="Stretch"
-                            Margin="10,25,10,10"
-                            materialDesign:HintAssist.Hint="Pick Date"
-                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-
-                        <!-- Accept Close Dialog -->
-
-                        <Grid>
-                            <!--- Accept Button -->
-                            <Button x:Name="ADD_COMMISION_ACCEPT_BUTTON_Edit"
-                                Style="{StaticResource MaterialDesignFlatButton}"
-                                IsDefault="True"
-                                Margin="0 8 8 0"
-                                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                                Click="ADD_COMMISION_ACCEPT_BUTTON_Edit_Click" HorizontalAlignment="Left">
-                                <Button.CommandParameter>
-                                    <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                        True
-                                    </system:Boolean>
-                                </Button.CommandParameter>
-                                <materialDesign:PackIcon Kind="Check" Width="16" Height="16" />
-                            </Button>
-                            <!--- Close Button -->
-                            <Button
-                            Style="{StaticResource MaterialDesignFlatButton}"
-                            IsCancel="True"
-                            Margin="0 8 8 0"
-                            Command="materialDesign:DialogHost.CloseDialogCommand" HorizontalAlignment="Right">
-                                <Button.CommandParameter>
-                                    <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                        False
-                                    </system:Boolean>
-                                </Button.CommandParameter>
-                                <materialDesign:PackIcon Kind="Close" />
-                            </Button>
-                        </Grid>
-
-                    </StackPanel>
-                </materialDesign:DialogHost.DialogContent>
 
                 <Frame x:Name="Body" NavigationUIVisibility="Hidden" Margin="0,40,0,0">
 
@@ -353,8 +266,8 @@
             <!--#endregion-->
 
             <materialDesign:ColorZone x:Name="WindowBar" Mode="Accent" Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth0" MouseDown="WindowBar_MouseDown">
-                <Grid>
-                    <StackPanel Margin="0,0,300,0" Orientation="Horizontal">
+                <Grid VerticalAlignment="Center">
+                    <StackPanel Margin="0,0,300,0" Orientation="Horizontal" VerticalAlignment="Center">
                         <ToggleButton IsChecked="False" x:Name="MenuToggleButton" materialDesign:ShadowAssist.ShadowDepth="Depth0" Foreground="#DDFFFFFF" Checked="MenuToggleButton_Checked" Unchecked="MenuToggleButton_Unchecked" RenderTransformOrigin="0.5,0.5" >
                             <ToggleButton.RenderTransform>
                                 <TransformGroup>
@@ -366,7 +279,7 @@
                             </ToggleButton.RenderTransform>
                         </ToggleButton>
 
-                        <TextBlock x:Name="toolbar_title" VerticalAlignment="Center" Text="COMMISION.IO" Margin="30 0 0 0" Foreground="#DDFFFFFF"/>
+                        <TextBlock x:Name="toolbar_title" Margin="10,0,0,0" VerticalAlignment="Center" Text="COMMISION.IO" Foreground="White" FontFamily="Lemon" FontSize="22" FontWeight="Normal" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <Grid HorizontalAlignment="Right">
                         <StackPanel Orientation="Horizontal">
@@ -416,8 +329,6 @@
         <!--#endregion-->
 
         <materialDesign:DialogHost Name="addhost"/>
-        
-        <Ellipse Fill="#7FF4F4F5" HorizontalAlignment="Left" Height="100" Margin="158,622,0,-259" Stroke="Black" VerticalAlignment="Top" Width="100"/>
 
         <!--!!!archived!!!-->
         

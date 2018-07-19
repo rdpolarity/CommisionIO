@@ -91,6 +91,9 @@
     </Compile>
     <Compile Include="instances.cs" />
     <Compile Include="NotEmptyValidationRule.cs" />
+    <Compile Include="NotifyPropertyChangedExtension.cs" />
+    <Compile Include="Pages\SampleDialog.xaml.cs" />
+    <Compile Include="Pages\SampleDialogViewModel.cs" />
     <Compile Include="TEST.xaml.cs">
       <DependentUpon>TEST.xaml</DependentUpon>
     </Compile>
@@ -203,6 +206,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="514230814-612x612.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fkljkzc5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pineapples-tropical-leaves-background-pinapples-vintage-seamless-pattern-vector-51756053.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="aaa.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.3.0.4\build\Fody.targets" Condition="Exists('..\packages\Fody.3.0.4\build\Fody.targets')" />

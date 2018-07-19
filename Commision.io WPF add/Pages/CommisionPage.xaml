@@ -17,6 +17,7 @@
 
 
     <Page.Resources>
+
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="Black" />
         <SolidColorBrush x:Key="HoverBorderBrush" Color="#DDD" />
@@ -325,100 +326,171 @@
         </Style>
     </Page.Resources>
 
-
     
+
+
     <Grid>
-        <materialDesign:DialogHost Name="addhost"/>
-        
-        <ScrollViewer PreviewMouseWheel="moveplease" x:Name="CommisionViewer">
-            <ListView x:FieldModifier="public" Background="{DynamicResource MaterialDesignBody}" Name="lbTodoList" HorizontalContentAlignment="Stretch" MouseDoubleClick="lbTodoList_MouseDoubleClick">
+
+
+        <materialDesign:DialogHost CloseOnClickAway="True" Name="addhost">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid Width="350" Height="500">
+                    <StackPanel>
+                        <Grid>
+                            <Image Source="/Commision.io WPF add;component/aaa.jpg" Stretch="UniformToFill" Height="150">
+                                <Image.Effect>
+                                    <BlurEffect/>
+                                </Image.Effect>
+                            </Image>
+                            <ToggleButton                                                                                       
+                        Content="H"
+                        Style="{StaticResource MaterialDesignActionAccentToggleButton}" Height="90" Width="90" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            
+                        </Grid>
+                        <TextBox  Margin="10" IsEnabled="False" x:Name="Profile_Title" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        </TextBox>
+                        <TextBox Margin="10" IsEnabled="False" x:Name="Profile_Name" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+                        <TextBox Margin="10" IsEnabled="False" x:Name="Profile_Notes" Style="{StaticResource MaterialDesignTextFieldBoxTextBox}" materialDesign:HintAssist.Hint="NOTES"/>
+                    </StackPanel>
+                    
+                    
+
+                    <!--- Accept Button -->
+                    <Button x:Name="Accept_Edit"
+                                                            Style="{StaticResource MaterialDesignFlatButton}"
+                                                            IsDefault="True"
+                                                            Margin="10"
+                                                            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                                             HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Accept_Edit_Click">
+
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                True
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                        <materialDesign:PackIcon Kind="Check" Width="16" Height="16" />
+                    </Button>
+
+                    <!--Edit Button-->
+                    <ToggleButton Margin="10" x:Name="btn_edit" Style="{StaticResource MaterialDesignFlatToggleButton}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="Auto" Checked="btn_edit_Checked" Unchecked="btn_edit_Unchecked">
+                        <materialDesign:PackIcon Margin="10" Kind="TableEdit" Foreground="#FF272727" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                    </ToggleButton>
+
+                    <!--- Close Button -->
+                    <Button
+                                                            Style="{StaticResource MaterialDesignFlatButton}"
+                                                            IsCancel="True"
+                                                            Margin="10"
+                                                            Command="materialDesign:DialogHost.CloseDialogCommand" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="Auto">
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                False
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                        <materialDesign:PackIcon Kind="Close" />
+                    </Button>
+
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+
+        <StackPanel Margin="5">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:Chip IsDeletable="True" Background="{DynamicResource MaterialDesignPaper}">
+                        Favorited
+                    </materialDesign:Chip>
+                    <materialDesign:Chip IsDeletable="True" Background="{DynamicResource MaterialDesignPaper}" Margin="5,0,0,0">
+                        Date Added
+                    </materialDesign:Chip>
+                    <materialDesign:Chip IsDeletable="True" Background="{DynamicResource MaterialDesignPaper}" Margin="5,0,0,0">
+                        A-Z
+                    </materialDesign:Chip>
+                    <materialDesign:PopupBox
+                    Margin="5"
+                    Background="{DynamicResource MaterialDesignPaper}"
+                    BorderBrush="{DynamicResource MaterialDesignPaper}"
+                    Foreground="{DynamicResource MaterialDesignBody}"
+                    Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                    PlacementMode="BottomAndAlignCentres"
+                    ToolTipService.Placement="Right"
+                    HorizontalAlignment="Right" Width="30" Height="30">
+                        <StackPanel>
+                            <Button x:Name="sort_fav"
+                                ToolTip="Favorite">
+                                <materialDesign:PackIcon
+                                Kind="Heart"
+                                />
+                            </Button>
+                            <Button x:Name="sort_alpha"
+                                ToolTip="A-Z">
+                                <materialDesign:PackIcon
+                                Kind="SortAlphabetical"
+                                />
+                            </Button>
+                            <Button x:Name="sort_date"
+                                ToolTip="Date Added">
+                                <materialDesign:PackIcon
+                                Kind="Calendar"
+                                />
+                            </Button>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                </StackPanel>
+                
+            </Grid>
+                    <ScrollViewer PreviewMouseWheel="moveplease" x:Name="CommisionViewer">
+            <ListView DisplayMemberPath="{Binding Name}"  SelectionChanged="lbTodoList_SelectionChanged" SelectedItem="{Binding MySelectedItem, Mode=TwoWay}" x:FieldModifier="public" Background="{DynamicResource MaterialDesignBody}" Name="lbTodoList" HorizontalContentAlignment="Stretch" MouseDoubleClick="lbTodoList_MouseDoubleClick">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
                         <i:InvokeCommandAction Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-                
-                
+
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <materialDesign:TransitioningContent OpeningEffectsOffset="{materialDesign:IndexedItemOffsetMultiplierExtension 0:0:0.1}" OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
 
                             <materialDesign:ColorZone x:Name="CLIENT_BOX"
+                                    
                                     Background="{DynamicResource MaterialDesignPaper}"
                                     Mode="Standard"
                                     CornerRadius="3"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth2"
-                                    Margin="5" Height="88">
+                                    Margin="5,5,0,5" Height="88">
 
                                 <Grid>
-                                    <TextBox Style="{StaticResource MaterialDesignTextFieldBoxTextBox}" materialDesign:HintAssist.Hint="NOTES" IsEnabled="False" x:Name="Commision_Note_Box" TextWrapping="Wrap" Text="{Binding Notes}" HorizontalAlignment="Stretch" Margin="148,10,181,10" VerticalAlignment="Center" MinWidth="0" Height="68" Width="Auto">
-                                    </TextBox>
-                                    
+
+
                                     <StackPanel
                                             Orientation="Horizontal">
                                         <ToggleButton x:Name="Client_Profile"
                                             Content="H"
                                             CommandTarget="{Binding ElementName=addhost}" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                                             Style="{StaticResource MaterialDesignActionAccentToggleButton}"
-                                            ToolTip="MaterialDesignActionToggleButton" Margin="10" Height="60" Width="60">
-                                            <ToggleButton.CommandParameter>
-                                                <Grid Width="350" Height="500">
-                                                    <Image Source="/Commision.io WPF add;component/514230814-612x612.jpg" Stretch="Fill" Height="200" VerticalAlignment="Top"/>
-                                                    <ToggleButton
-                                            Content="H"
-                                            CommandTarget="{Binding ElementName=addhost}" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                                            Style="{StaticResource MaterialDesignActionAccentToggleButton}"
-                                            ToolTip="MaterialDesignActionToggleButton" Height="110" Width="110" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,145,0,0"/>
-                                                    <!--- Accept Button -->
-                                                    <Button 
-                                                            Style="{StaticResource MaterialDesignFlatButton}"
-                                                            IsDefault="True"
-                                                            Margin="10"
-                                                            
-                                                             HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                                                        <Button.CommandParameter>
-                                                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                                                True
-                                                            </system:Boolean>
-                                                        </Button.CommandParameter>
-                                                        <materialDesign:PackIcon Kind="Check" Width="16" Height="16" />
-                                                    </Button>
-
-                                                   
-                                                    <!--- Close Button -->
-                                                    <Button
-                                                            Style="{StaticResource MaterialDesignFlatButton}"
-                                                            IsCancel="True"
-                                                            Margin="10"
-                                                            Command="materialDesign:DialogHost.CloseDialogCommand" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                                                        <Button.CommandParameter>
-                                                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                                                False
-                                                            </system:Boolean>
-                                                        </Button.CommandParameter>
-                                                        <materialDesign:PackIcon Kind="Close" />
-                                                    </Button>
-                                                    
-                                                </Grid>
-                                            </ToggleButton.CommandParameter>
+                                            ToolTip="MaterialDesignActionToggleButton" Margin="10" Height="60" Width="60" Click="Client_Profile_Click">
                                         </ToggleButton>
                                         <Grid>
-                                            <StackPanel VerticalAlignment="Center">
-                                                <TextBlock x:Name="Commision_Title_Box"
+                                            <StackPanel Orientation="Horizontal">
+                                                <StackPanel VerticalAlignment="Center">
+                                                    <TextBlock x:Name="Commision_Title_Box"
                                                     VerticalAlignment="Center"
                                                     Margin="16 0 0 0"
+                                                            
                                                     Text="{Binding Title}">
 
-                                                </TextBlock>
-                                                <TextBlock x:Name="Commision_Client_Box"
+                                                    </TextBlock>
+                                                    <TextBlock x:Name="Commision_Client_Box"
                                                     VerticalAlignment="Center"
                                                     Margin="16,0,0,0" FontSize="11"
                                                     Text="{Binding Client}">
 
-                                                </TextBlock>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                                <TextBox Margin="10" Style="{StaticResource MaterialDesignTextFieldBoxTextBox}" materialDesign:HintAssist.Hint="NOTES" IsEnabled="False" x:Name="Commision_Note_Box" TextWrapping="Wrap" Text="{Binding Notes}" HorizontalAlignment="Center" VerticalAlignment="Stretch" MinWidth="0" Width="200" MinHeight="0"/>
+
+
                                             </StackPanel>
-
-
 
                                         </Grid>
                                     </StackPanel>
@@ -436,46 +508,13 @@
                                             Text="{Binding Cost}">
 
                                         </TextBlock>
-                                        <Button x:Name="btn_reciet" CommandTarget="{Binding ElementName=addhost}" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Margin="5" Style="{StaticResource MaterialDesignFlatButton}" Click="btn_reciet_Click">
+                                        <Button x:Name="btn_reciet" Margin="5" Style="{StaticResource MaterialDesignFlatButton}" Click="btn_reciet_Click">
                                             <materialDesign:PackIcon Kind="BookOpen"/>
-                                            <Button.CommandParameter>
-                                                <Grid Width="350" Height="500">
-                                                    <!--- Accept Button -->
-                                                    <Button
-                                                            Style="{StaticResource MaterialDesignFlatButton}"
-                                                            IsDefault="True"
-                                                            Margin="0 8 8 0"
-                                                            
-                                                            HorizontalAlignment="Left">
-                                                        <Button.CommandParameter>
-                                                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                                                True
-                                                            </system:Boolean>
-                                                        </Button.CommandParameter>
-                                                        <materialDesign:PackIcon Kind="Check" Width="16" Height="16" />
-                                                    </Button>
-
-                                                    
-                                                    <!--- Close Button -->
-                                                    <Button
-                                                            Style="{StaticResource MaterialDesignFlatButton}"
-                                                            IsCancel="True"
-                                                            Margin="0 8 8 0"
-                                                            Command="materialDesign:DialogHost.CloseDialogCommand" HorizontalAlignment="Right">
-                                                        <Button.CommandParameter>
-                                                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                                                False
-                                                            </system:Boolean>
-                                                        </Button.CommandParameter>
-                                                        <materialDesign:PackIcon Kind="Close" />
-                                                    </Button>
-                                                </Grid>
-                                            </Button.CommandParameter>
                                         </Button>
                                         <ToggleButton
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             ToolTip="MaterialDesignFlatPrimaryToggleButton"
-                                            IsChecked="False" Background="#FFFFB3B3" Foreground="Red" Margin="20,0,0,0">
+                                            IsChecked="False" Background="#FFFFB3B3" Foreground="Red">
                                             <materialDesign:PackIcon
                                                 Kind="Heart"
                                                 Height="21"
@@ -489,7 +528,13 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListView>
-        </ScrollViewer>
+       </ScrollViewer> 
+        </StackPanel>
+
+
+
+        
+
 
 
 
