@@ -2,19 +2,21 @@
 using System.Windows;
 using System.Windows.Input;
 using System.Xml;
-using Commision.io_WPF_add.Properties;
+using COMMISSION.io_WPF_add.Properties;
 using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
 using System.Collections.Generic;
 using System.Windows.Media;
-using Commision.io_WPF_add;
+using COMMISSION.io_WPF_add;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using System.Windows.Media.Animation;
+using System.Windows.Forms;
+using System.Windows.Media.Imaging;
 
-namespace Commision.io_WPF_add
+namespace COMMISSION.io_WPF_add
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,6 +27,9 @@ namespace Commision.io_WPF_add
         {
             InitializeComponent();
 
+            testermode = false;
+            buildversion = 2.37;
+
             //time start
             SetTimerInterrupts();
 
@@ -34,10 +39,8 @@ namespace Commision.io_WPF_add
 
             Add_Contact.Visibility = System.Windows.Visibility.Hidden;
 
-            ApplyPrimary("Purple");
-            ApplyAccent("Purple");
-
-            Body.Content = instances.compage;
+            ApplyPrimary("Orange");
+            ApplyAccent("Orange");
 
             //Settings.Default.LISTID = 0;
             //Settings.Default.Save();
@@ -45,17 +48,41 @@ namespace Commision.io_WPF_add
             Swatches = new SwatchesProvider().Swatches;
         }
 
+        public bool testermode;
+        public double buildversion;
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             EnableBlur();
 
-            instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = "TitleTest 1", Cost = "CostTest 1", Client = "ClientTest 1", Deadline = "DeadlineTest 1", Notes = "NotesTest 1" });
-            instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = "TitleTest 2", Cost = "CostTest 2", Client = "ClientTest 2", Deadline = "DeadlineTest 2", Notes = "NotesTest 2" });
+            if (testermode == true)
+            {
+                System.Windows.Forms.MessageBox.Show("Hello alpha tester! Thank you so much for helping me out! Just before you begin, please do not use the current build for anything work related as it's highly buggy and will not save any data on restart~");
+            }
+
+            if (testermode == true)
+            {
+                txt_tester.Text = "ALPHA TESTER BUILD v" + buildversion;
+                txt_tester.Visibility = Visibility.Visible;
+            }
+
+            instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = "[Full] Mei Mei", Cost = "$20", Client = "AydieMe", Deadline = "3/25/2016", Notes = "- Smol Blue Earth Pony", imagepath = @"E:\DESKTOP\Pictures\Mei Mei.png", outline = "red" });
+            instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = "[Full] Cloudy", Cost = "$15", Client = "OhHoneyBee", Deadline = "3/25/2016", Notes = "- Ver Smol BatPony", imagepath = @"E:\DESKTOP\Pictures\Cloudy.png", outline = "transparent"});
+
+
+
+            hidehelp = true;
+
+            Add_COMMISSION.Visibility = System.Windows.Visibility.Hidden;
+            Add_Contact.Visibility = System.Windows.Visibility.Hidden;
+
+            Body.Content = instances.hompage;
 
             com_instance.Content = instances.compage;
             con_instance.Content = instances.conpage;
             log_instance.Content = instances.logpage;
             set_instance.Content = instances.setpage;
+            hom_instance.Content = instances.hompage;
         }
 
         internal enum AccentState
@@ -147,12 +174,12 @@ namespace Commision.io_WPF_add
             new PaletteHelper().ReplaceAccentColor(swatch);
         }
 
-        //saves the add commision form to xml
+        //saves the add COMMISSION form to xml
         public void savexml()
         {
             XmlDocument XmlDocObj = new XmlDocument();
-            XmlDocObj.Load(@"C:\Users\admin\source\repos\Commision.io WPF add\Commision.io WPF add\CommisionData.xml");
-            XmlNode RootNode = XmlDocObj.SelectSingleNode("Commisions");
+            XmlDocObj.Load(@"C:\Users\admin\source\repos\COMMISSION.io WPF add\COMMISSION.io WPF add\COMMISSIONData.xml");
+            XmlNode RootNode = XmlDocObj.SelectSingleNode("COMMISSIONs");
             XmlNode bookNode = RootNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "entry", ""));
 
             Settings.Default.LISTID += 1;
@@ -171,14 +198,14 @@ namespace Commision.io_WPF_add
             bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Client", "")).InnerText = client;
             bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Deadline", "")).InnerText = deadline;
 
-            XmlDocObj.Save(@"C:\Users\admin\source\repos\Commision.io WPF add\Commision.io WPF add\CommisionData.xml");
+            XmlDocObj.Save(@"C:\Users\admin\source\repos\COMMISSION.io WPF add\COMMISSION.io WPF add\COMMISSIONData.xml");
         }
 
-        //loads all saved commisions in xml file
+        //loads all saved COMMISSIONs in xml file
         public void loadxml()
         {
             XmlDocument XmlDocObj = new XmlDocument();
-            XmlDocObj.Load(@"C:\Users\admin\source\repos\Commision.io WPF add\Commision.io WPF add\CommisionData.xml");
+            XmlDocObj.Load(@"C:\Users\admin\source\repos\COMMISSION.io WPF add\COMMISSION.io WPF add\COMMISSIONData.xml");
 
 
             XmlNodeList elemList = XmlDocObj.GetElementsByTagName("Title");
@@ -197,10 +224,10 @@ namespace Commision.io_WPF_add
                 instances.compage.lbTodoList.Items.Add(new TodoItem() { BindedID = Convert.ToString(Settings.Default.LISTID), Title = title, Completion = 45, Cost = cost, Client = client, Deadline = deadline });
             }
 
-            //title = Convert.ToString(XmlDocObj.SelectSingleNode("Commisions/entry/Title").InnerText);
-            //cost = Convert.ToString(XmlDocObj.SelectSingleNode("Commisions/entry/Cost").InnerText);
-            //client = Convert.ToString(XmlDocObj.SelectSingleNode("Commisions/entry/Client").InnerText);
-            //deadline = Convert.ToString(XmlDocObj.SelectSingleNode("Commisions/entry/Deadline").InnerText);
+            //title = Convert.ToString(XmlDocObj.SelectSingleNode("COMMISSIONs/entry/Title").InnerText);
+            //cost = Convert.ToString(XmlDocObj.SelectSingleNode("COMMISSIONs/entry/Cost").InnerText);
+            //client = Convert.ToString(XmlDocObj.SelectSingleNode("COMMISSIONs/entry/Client").InnerText);
+            //deadline = Convert.ToString(XmlDocObj.SelectSingleNode("COMMISSIONs/entry/Deadline").InnerText);
         }
 
         //timer settings
@@ -246,17 +273,6 @@ namespace Commision.io_WPF_add
             {
                 help_box.Visibility = Visibility.Hidden;
             }
-
-            //If an item is selected then open edit box
-
-            if (instances.compage.lbTodoList.SelectedItems.Count > 0)
-            {
-                editmode.IsActive = true;
-            }
-            if ((instances.compage.lbTodoList.SelectedItems.Count == 0))
-            {
-                editmode.IsActive = false;
-            }
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
@@ -264,8 +280,8 @@ namespace Commision.io_WPF_add
 
         }
 
-        //ADDS A COMMISION
-        private void Add_Commision_Click(object sender, RoutedEventArgs e)
+        //ADDS A COMMISSION
+        private void Add_COMMISSION_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -283,7 +299,8 @@ namespace Commision.io_WPF_add
 
         private void CLOSEBUTTON_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Windows[0].Close();
+            for (int intCounter = App.Current.Windows.Count - 1; intCounter >= 0; intCounter--)
+                App.Current.Windows[intCounter].Close();
         }
 
         private void Maximize_Click(object sender, RoutedEventArgs e)
@@ -321,6 +338,8 @@ namespace Commision.io_WPF_add
             public string Notes { get; set; }
             public int Completion { get; set; }
             public string BindedID { get; set; }
+            public string imagepath { get; set; }
+            public string outline { get; set; }
         }
 
         public class TodoItem2
@@ -343,7 +362,7 @@ namespace Commision.io_WPF_add
             phonenumber = Client_Phone.Text;
             email = Client_Email.Text;
 
-            Commision_Client.Items.Add(contacttitle);
+            COMMISSION_Client.Items.Add(contacttitle);
 
             if (contacttitle == "") { contacttitle= "?"; }
             if (phonenumber == "") { phonenumber = "?"; }
@@ -355,26 +374,26 @@ namespace Commision.io_WPF_add
         }
 
 
-        //Adds a commision to list and xml
-        public void ADD_COMMISION_ACCEPT_BUTTON_Click(object sender, RoutedEventArgs e)
+        //Adds a COMMISSION to list and xml
+        public void ADD_COMMISSION_ACCEPT_BUTTON_Click(object sender, RoutedEventArgs e)
         {
-            title = Commision_Title.Text;
-            cost = "$" + Commision_Cost.Text;
-            client = Commision_Client.Text;
-            deadline = Commision_Deadline.Text;
-            notes = Commision_Notes.Text;
+            title = COMMISSION_Title.Text;
+            cost = "$" + COMMISSION_Cost.Text;
+            client = COMMISSION_Client.Text;
+            deadline = COMMISSION_Deadline.Text;
+            notes = COMMISSION_Notes.Text;
 
-            if (Commision_Title.Text == "") { Commision_Title.Foreground = Brushes.Red; }
-            else if (Commision_Title.Text != "") { Commision_Title.Foreground = Brushes.Black; }
+            if (COMMISSION_Title.Text == "") { COMMISSION_Title.Foreground = Brushes.Red; }
+            else if (COMMISSION_Title.Text != "") { COMMISSION_Title.Foreground = Brushes.Black; }
 
-            if (Commision_Cost.Text == "") { Commision_Cost.Foreground = Brushes.Red; }
-            else if (Commision_Cost.Text != "") { Commision_Cost.Foreground = Brushes.Black; }
+            if (COMMISSION_Cost.Text == "") { COMMISSION_Cost.Foreground = Brushes.Red; }
+            else if (COMMISSION_Cost.Text != "") { COMMISSION_Cost.Foreground = Brushes.Black; }
 
-            if (Commision_Client.Text == "") { Commision_Client.Foreground = Brushes.Red; ; }
-            else if (Commision_Client.Text != "") { Commision_Client.Foreground = Brushes.Black; }
+            if (COMMISSION_Client.Text == "") { COMMISSION_Client.Foreground = Brushes.Red; ; }
+            else if (COMMISSION_Client.Text != "") { COMMISSION_Client.Foreground = Brushes.Black; }
 
-            if (Commision_Deadline.Text == "") { Commision_Deadline.Foreground = Brushes.Red; ; }
-            else if (Commision_Deadline.Text != "") { Commision_Deadline.Foreground = Brushes.Black; }
+            if (COMMISSION_Deadline.Text == "") { COMMISSION_Deadline.Foreground = Brushes.Red; ; }
+            else if (COMMISSION_Deadline.Text != "") { COMMISSION_Deadline.Foreground = Brushes.Black; }
 
             if (title != "")
             {
@@ -385,9 +404,10 @@ namespace Commision.io_WPF_add
                         if (deadline != "")
                         {
                             DialogHost.CloseDialogCommand.Execute(new object(), null);
-                            instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = title, Completion = 45, Cost = cost, Client = client, Deadline = deadline, Notes = notes });
+                            instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = title, Completion = 45, Cost = cost, Client = client, Deadline = deadline, Notes = notes, imagepath = op.FileName, outline = setoutlinecolour});
                             txt_warning.Visibility = Visibility.Hidden;
-                        }
+                            op.FileName = "";
+                    }
                     }
                 }
             }
@@ -398,6 +418,8 @@ namespace Commision.io_WPF_add
 
             //savexml();
         }
+
+        public string setoutlinecolour;
 
         private void lbTodoList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
@@ -413,18 +435,18 @@ namespace Commision.io_WPF_add
         }
 
         //Delete a selected item from list
-        private void Commision_Delete_ActionClick(object sender, RoutedEventArgs e)
+        private void COMMISSION_Delete_ActionClick(object sender, RoutedEventArgs e)
         {
             ////XML delete
             //XmlDocument XmlDocObj = new XmlDocument();
-            //XmlDocObj.Load(@"C:\Users\admin\source\repos\Commision.io WPF add\Commision.io WPF add\CommisionData.xml");
+            //XmlDocObj.Load(@"C:\Users\admin\source\repos\COMMISSION.io WPF add\COMMISSION.io WPF add\COMMISSIONData.xml");
 
             //XmlNode root = XmlDocObj.DocumentElement;
 
             //Settings.Default.LISTID -= 1;
             //Properties.Settings.Default.Save();
 
-            //root.RemoveChild(XmlDocObj.SelectSingleNode("Commisions/entry[@ID='"+ deleteID +"']"));
+            //root.RemoveChild(XmlDocObj.SelectSingleNode("COMMISSIONs/entry[@ID='"+ deleteID +"']"));
 
             //list delete
             while (instances.compage.lbTodoList.SelectedItems.Count > 0)
@@ -433,112 +455,72 @@ namespace Commision.io_WPF_add
                 instances.compage.lbTodoList.Items.RemoveAt(index);
             }
 
-            //XmlDocObj.Save(@"C:\Users\admin\source\repos\Commision.io WPF add\Commision.io WPF add\CommisionData.xml");
+            //XmlDocObj.Save(@"C:\Users\admin\source\repos\COMMISSION.io WPF add\COMMISSION.io WPF add\COMMISSIONData.xml");
         }
 
-        public static void setedit()
-        {
-            int index = instances.compage.lbTodoList.SelectedIndex;
-            instances.compage.lbTodoList.Items.RemoveAt(index);
-
-            title = "a";
-            cost = "a";
-            client = "a";
-            deadline = "a";
-
-            instances.compage.lbTodoList.Items.Insert(1, new TodoItem() { Title = title, Completion = 45, Cost = cost, Client = client, Deadline = deadline });
-        }
-
-        private void lbTodoList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            System.Windows.Forms.MessageBox.Show("Test");
-        }
 
         private void cost_5_Click(object sender, RoutedEventArgs e)
         {
-            Commision_Cost.Text = "5";
+            COMMISSION_Cost.Text = "5";
         }
 
         private void cost_25_Click(object sender, RoutedEventArgs e)
         {
-            Commision_Cost.Text = "25";
+            COMMISSION_Cost.Text = "25";
         }
 
         private void cost_50_Click(object sender, RoutedEventArgs e)
         {
-            Commision_Cost.Text = "50";
+            COMMISSION_Cost.Text = "50";
         }
 
         private void cost_75_Click(object sender, RoutedEventArgs e)
         {
-            Commision_Cost.Text = "75";
+            COMMISSION_Cost.Text = "75";
         }
 
         private void cost_100_Click(object sender, RoutedEventArgs e)
         {
-            Commision_Cost.Text = "100";
+            COMMISSION_Cost.Text = "100";
         }
 
         public static bool hidehelp = false;
 
-        private void Commision_list_Click(object sender, RoutedEventArgs e)
-        {
-            hidehelp = false;
-            Add_Commision.Visibility = System.Windows.Visibility.Visible;
-            Add_Contact.Visibility = System.Windows.Visibility.Hidden;
-
-            Body.Content = instances.compage;
-        }
-
-        private void Contact_list_Click(object sender, RoutedEventArgs e)
-        {
-            hidehelp = true;
-
-            Add_Commision.Visibility = System.Windows.Visibility.Hidden;
-            Add_Contact.Visibility = System.Windows.Visibility.Visible;
-
-            Body.Content = instances.conpage;
-        }
-
-        private void Update_list_Click(object sender, RoutedEventArgs e)
-        {
-            hidehelp = true;
-
-            Add_Commision.Visibility = System.Windows.Visibility.Hidden;
-            Add_Contact.Visibility = System.Windows.Visibility.Hidden;
-
-            Body.Content = instances.logpage;
-        }
-
         private void tabheader_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string tabItem = ((sender as TabControl).SelectedItem as TabItem).Header as string;
-            string tabName = ((sender as TabControl).SelectedItem as TabItem).Name as string;
+            string tabItem = ((sender as System.Windows.Controls.TabControl).SelectedItem as TabItem).Header as string;
+            string tabName = ((sender as System.Windows.Controls.TabControl).SelectedItem as TabItem).Name as string;
             switch (tabName)
             {
                 case "setting":
                     hidehelp = true;
-                    Add_Commision.Visibility = System.Windows.Visibility.Hidden;
+                    Add_COMMISSION.Visibility = System.Windows.Visibility.Hidden;
                     Add_Contact.Visibility = System.Windows.Visibility.Hidden;
                     break;
             }
             switch (tabItem)
             {
-                case "COMMISIONS":
+                case "COMMISSIONS":
                     hidehelp = false;
-                    Add_Commision.Visibility = System.Windows.Visibility.Visible;
+                    Add_COMMISSION.Visibility = System.Windows.Visibility.Visible;
                     Add_Contact.Visibility = System.Windows.Visibility.Hidden;
                     break;
 
                 case "CONTACTS":
                     hidehelp = true;
-                    Add_Commision.Visibility = System.Windows.Visibility.Hidden;
+                    Add_COMMISSION.Visibility = System.Windows.Visibility.Hidden;
                     Add_Contact.Visibility = System.Windows.Visibility.Visible;
                     break;
 
                 case "UPDATELOG":
                     hidehelp = true;
-                    Add_Commision.Visibility = System.Windows.Visibility.Hidden;
+                    Add_COMMISSION.Visibility = System.Windows.Visibility.Hidden;
+                    Add_Contact.Visibility = System.Windows.Visibility.Hidden;
+                    break;
+
+                case "HOME":
+                    hidehelp = true;
+                    Add_COMMISSION.Visibility = System.Windows.Visibility.Hidden;
                     Add_Contact.Visibility = System.Windows.Visibility.Hidden;
                     break;
 
@@ -547,19 +529,67 @@ namespace Commision.io_WPF_add
             }
         }
 
-        DoubleAnimation close = new DoubleAnimation(70, TimeSpan.FromSeconds(0.2));
-        DoubleAnimation open = new DoubleAnimation(509.457, TimeSpan.FromSeconds(0.2));
 
-        private void MenuToggleButton_Checked(object sender, RoutedEventArgs e)
+
+        OpenFileDialog op = new OpenFileDialog();
+
+        public void Ellipse_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            WindowSet.BeginAnimation(Window.HeightProperty, close);
+            try
+            {
+                op.ShowDialog();
+                op.Title = "Select a picture";
+                op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+                  "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                  "Portable Network Graphic (*.png)|*.png";
+
+                var path = op.FileName;
+
+                BitmapImage setimage = new BitmapImage(new Uri(op.FileName));
+
+                ImageBrush newimage = new ImageBrush(setimage);
+
+                newimage.Stretch = Stretch.UniformToFill;
+
+                Profile_Picture.Fill = newimage;
+            }
+            catch { }
         }
 
-
-
-        private void MenuToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        private void Com_Green_Click(object sender, RoutedEventArgs e)
         {
-            WindowSet.BeginAnimation(Window.HeightProperty, open);
+            setoutlinecolour = "green";
+            Profile_Picture.Stroke = Brushes.Green;
+        }
+
+        private void Com_Clear_Click(object sender, RoutedEventArgs e)
+        {
+            setoutlinecolour = "Transparent";
+            Profile_Picture.Stroke = Brushes.Transparent;
+        }
+
+        private void Com_Purple_Click(object sender, RoutedEventArgs e)
+        {
+            setoutlinecolour = "Purple";
+            Profile_Picture.Stroke = Brushes.Purple;
+        }
+
+        private void Com_Yellow_Click(object sender, RoutedEventArgs e)
+        {
+            setoutlinecolour = "Yellow";
+            Profile_Picture.Stroke = Brushes.Yellow;
+        }
+
+        private void Com_Orange_Click(object sender, RoutedEventArgs e)
+        {
+            setoutlinecolour = "Orange";
+            Profile_Picture.Stroke = Brushes.Orange;
+        }
+
+        private void Com_Red_Click(object sender, RoutedEventArgs e)
+        {
+            setoutlinecolour = "Red";
+            Profile_Picture.Stroke = Brushes.Red;
         }
     }
 }

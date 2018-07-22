@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 using MaterialDesignThemes.Wpf;
 
-namespace Commision.io_WPF_add
+namespace COMMISSION.io_WPF_add
 {
     public class PaletteHelper
     {

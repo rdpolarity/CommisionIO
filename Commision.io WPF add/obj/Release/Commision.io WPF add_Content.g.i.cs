@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("gray-polygonal-background-picture-id514230814.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("commision.io_1.avi")]
 
 

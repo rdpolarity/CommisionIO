@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Commision.io_WPF_add
+namespace COMMISSION.io_WPF_add
 {
     /// <summary>
     /// Interaction logic for TEST.xaml

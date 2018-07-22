@@ -92,3 +92,10 @@ C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\TEST.baml
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision Profile Window.g.cs
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision Profile Window.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\fav.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\fav.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\WpfAnimatedGif.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\WpfAnimatedGif.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io WPF add_Content.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\HomePage.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\HomePage.baml

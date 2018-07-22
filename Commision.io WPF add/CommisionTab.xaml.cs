@@ -13,24 +13,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Commision.io_WPF_add
+namespace COMMISSION.io_WPF_add
 {
     /// <summary>
-    /// Interaction logic for CommisionTab.xaml
+    /// Interaction logic for COMMISSIONTab.xaml
     /// </summary>
-    public partial class CommisionTab : UserControl
+    public partial class COMMISSIONTab : UserControl
     {
         
 
-        public CommisionTab()
+        public COMMISSIONTab()
         {
             InitializeComponent();
 
 
-            Commision_Client_Box.Text = MainWindow.client;
-            Commision_Title_Box.Text = MainWindow.title;
-            Commision_Date_Box.Text = MainWindow.deadline;
-            Commision_Cost.Text = "$" + MainWindow.cost;
+            COMMISSION_Client_Box.Text = MainWindow.client;
+            COMMISSION_Title_Box.Text = MainWindow.title;
+            COMMISSION_Date_Box.Text = MainWindow.deadline;
+            COMMISSION_Cost.Text = "$" + MainWindow.cost;
         }
 
         private void Client_Profile_Checked(object sender, RoutedEventArgs e)

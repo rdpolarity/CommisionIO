@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Commision.io_WPF_add
+namespace COMMISSION.io_WPF_add
 {
     public static class NotifyPropertyChangedExtension
     {

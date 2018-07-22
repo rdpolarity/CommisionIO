@@ -21,7 +21,7 @@ namespace View_Data
         private void button1_Click(object sender, EventArgs e)
         {
             DataSet dataSet = new DataSet();
-            dataSet.ReadXml(@"C:\Users\admin\source\repos\Commision.io WPF add\Commision.io WPF add\CommisionData.xml");
+            dataSet.ReadXml(@"C:\Users\admin\source\repos\COMMISSION.io WPF add\COMMISSION.io WPF add\COMMISSIONData.xml");
             dataGridView1.DataSource = dataSet.Tables[0];
         }
     }

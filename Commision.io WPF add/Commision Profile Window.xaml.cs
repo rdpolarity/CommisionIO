@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Commision.io_WPF_add
+namespace COMMISSION.io_WPF_add
 {
     /// <summary>
-    /// Interaction logic for Commision_Profile_Window.xaml
+    /// Interaction logic for COMMISSION_Profile_Window.xaml
     /// </summary>
-    public partial class Commision_Profile_Window : Window
+    public partial class COMMISSION_Profile_Window : Window
     {
-        public Commision_Profile_Window()
+        public COMMISSION_Profile_Window()
         {
             InitializeComponent();
         }

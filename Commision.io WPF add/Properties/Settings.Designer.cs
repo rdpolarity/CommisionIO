@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Commision.io_WPF_add.Properties {
+namespace COMMISSION.io_WPF_add.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

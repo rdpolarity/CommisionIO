@@ -80,6 +80,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.16\lib\net\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -88,6 +91,12 @@
     </ApplicationDefinition>
     <Compile Include="Commision Profile Window.xaml.cs">
       <DependentUpon>Commision Profile Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fav.xaml.cs">
+      <DependentUpon>fav.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="instances.cs" />
     <Compile Include="NotEmptyValidationRule.cs" />
@@ -104,6 +113,14 @@
       <DependentUpon>UpdateLog.xaml</DependentUpon>
     </Compile>
     <Page Include="Commision Profile Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="fav.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -215,6 +232,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="aaa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Commision.IO.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Commision.IO_1.avi" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.3.0.4\build\Fody.targets" Condition="Exists('..\packages\Fody.3.0.4\build\Fody.targets')" />

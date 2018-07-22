@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Commision.io_WPF_add"
+        xmlns:local="clr-namespace:COMMISSION.io_WPF_add"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:domain1="clr-namespace:MaterialDesignDemo.Domain"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="WindowSet" 
@@ -20,7 +21,7 @@
         xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
         WindowStartupLocation="CenterScreen"
     
-        x:Class="Commision.io_WPF_add.MainWindow"
+        x:Class="COMMISSION.io_WPF_add.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="509.457" Width="684" ResizeMode="NoResize" Topmost="True" WindowStyle="None">
     <Window.Resources>
@@ -46,12 +47,12 @@
         
 
         <!--#region Help Message-->
-        <TextBlock x:Name="help_box" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#DDFFFFFF" TextAlignment="Center" FontSize="24">
-            Press the <materialDesign:PackIcon Kind="PlusCircleOutline" Foreground="#DDFFFFFF" /> in the bottom right of the application to add a commision
+        <TextBlock x:Name="help_box" FontFamily="Quicksand" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#DDFFFFFF" TextAlignment="Center" FontSize="18">
+            PRESS THE <materialDesign:PackIcon Kind="PlusCircleOutline" Foreground="#DDFFFFFF" /> IN THE BOTTOM RIGHT OF THE APPLICATION TO ADD A COMMISSION
         </TextBlock>
         <!--#endregion-->
 
-        <!--#region EDIT & Commision box-->
+        <!--#region EDIT & COMMISSION box-->
         <Grid x:Name="ADD_GRID" Margin="0,69,0,0">
 
             <materialDesign:DialogHost x:FieldModifier="public" x:Name="edit_dialog">
@@ -65,18 +66,20 @@
         </Grid>
         <!--#endregion-->
 
-            <!--#region Windowbar-->
+        <!--#region Windowbar-->
         <Grid>
             <Grid Margin="0,69,0,0">
                 <dragablz:TabablzControl Padding="16" x:Name="tabheader" BorderThickness="0" SelectionChanged="tabheader_SelectionChanged">
-
-                    <TabItem Header="COMMISIONS">
+                    <TabItem Header="HOME" FontFamily="Quicksand">
+                        <Frame Name="hom_instance"/>
+                    </TabItem>
+                    <TabItem Header="COMMISSIONS" FontFamily="Quicksand">
                         <Frame Name="com_instance"/>
                     </TabItem>
-                    <TabItem Header="CONTACTS">
+                    <TabItem Header="CONTACTS" FontFamily="Quicksand">
                         <Frame Name="con_instance"/>
                     </TabItem>
-                    <TabItem Header="UPDATELOG">
+                    <TabItem IsEnabled="False" Header="UPDATELOG" FontFamily="Quicksand">
                         <Frame Name="log_instance"/>
                     </TabItem>
                     <TabItem Name="setting" HorizontalAlignment="Left">
@@ -93,7 +96,7 @@
             Margin="25"
             Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=addhost}"
             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-            ToolTip="Add A Commision" VerticalAlignment="Bottom" materialDesign:ShadowAssist.ShadowDepth="Depth3" HorizontalAlignment="Right" Width="50" Height="50">
+            ToolTip="Add A COMMISSION" VerticalAlignment="Bottom" materialDesign:ShadowAssist.ShadowDepth="Depth3" HorizontalAlignment="Right" Width="50" Height="50">
                 <materialDesign:PackIcon
                 Kind="Plus"
                 Height="24"
@@ -149,11 +152,11 @@
             <!--#endregion-->
 
             <!--#region ADD COMM BUTTON-->
-            <Button x:Name="Add_Commision"
+            <Button x:Name="Add_COMMISSION"
             Margin="25"
             Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=addhost}"
             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-            ToolTip="Add A Commision" VerticalAlignment="Bottom" materialDesign:ShadowAssist.ShadowDepth="Depth3" HorizontalAlignment="Right" Width="50" Height="50">
+            ToolTip="Add A COMMISSION" VerticalAlignment="Bottom" materialDesign:ShadowAssist.ShadowDepth="Depth3" HorizontalAlignment="Right" Width="50" Height="50">
                 <materialDesign:PackIcon
                 Kind="Plus"
                 Height="24"
@@ -162,11 +165,26 @@
                 <Button.CommandParameter>
                     <StackPanel Margin="16">
 
-                        <!-- Add Commision Dialog -->
+                        <!-- Add COMMISSION Dialog -->
                         <TextBlock HorizontalAlignment="Center">
-                                                        ADD COMMISION
+                                                        ADD COMMISSION
                         </TextBlock>
-                        <TextBox x:Name="Commision_Title"
+                        <Grid Width="75" Margin="10" Height="75">
+                            <Ellipse x:Name="Profile_Picture" Fill="{DynamicResource SecondaryAccentBrush}" HorizontalAlignment="Center" Width="75" Height="75" MouseUp="Ellipse_MouseUp" StrokeThickness="3">
+                            </Ellipse>
+                            <materialDesign:PackIcon Foreground="{DynamicResource MaterialDesignPaper}" Kind="Plus" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30" />
+                        </Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="Com_Clear" Style="{StaticResource themecircle}" Background="White" BorderThickness="1" BorderBrush="Black" Click="Com_Clear_Click"/>
+                            <Button Name="Com_Green" Style="{StaticResource themecircle}" Background="#4CAF50" BorderThickness="0" BorderBrush="{x:Null}" Click="Com_Green_Click"/>
+                            
+                            <Button Name="Com_Purple" Style="{StaticResource themecircle}" Background="#9C27B0" BorderThickness="0" BorderBrush="{x:Null}" Click="Com_Purple_Click"/>
+                            <Button Name="Com_Yellow" Style="{StaticResource themecircle}" Background="#FFEB3B" BorderThickness="0" BorderBrush="{x:Null}" Click="Com_Yellow_Click"/>
+                            <Button Name="Com_Orange" Style="{StaticResource themecircle}" Background="#FF9800" BorderThickness="0" BorderBrush="{x:Null}" Click="Com_Orange_Click"/>
+                            <Button Name="Com_Red" Style="{StaticResource themecircle}" Background="#F44336" BorderThickness="0" BorderBrush="{x:Null}" Click="Com_Red_Click"/>
+                        </StackPanel>
+
+                        <TextBox MaxLength="12" x:Name="COMMISSION_Title"
                                                         materialDesign:HintAssist.Hint="Title" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                                         Margin="10"
                                                         HorizontalAlignment="Stretch">
@@ -177,7 +195,7 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <TextBox x:Name="Commision_Cost"
+                        <TextBox MaxLength="4" x:Name="COMMISSION_Cost"
                                                         materialDesign:HintAssist.Hint="Cost" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                                         Margin="10"
                                                         HorizontalAlignment="Stretch" />
@@ -188,7 +206,7 @@
                             <Button x:Name="cost_75" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cost_75_Click">$75</Button>
                             <Button x:Name="cost_100" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cost_100_Click">$100</Button>
                         </StackPanel>
-                        <ComboBox x:Name="Commision_Client"
+                        <ComboBox x:Name="COMMISSION_Client"
                                                         materialDesign:HintAssist.Hint="Client"
                                                         MinWidth="72"
                                                         Margin="10,20,10,10"
@@ -213,13 +231,13 @@
 
 
 
-                        <DatePicker x:Name="Commision_Deadline"
+                        <DatePicker x:Name="COMMISSION_Deadline"
                                                         HorizontalAlignment="Stretch"
                                                         Margin="10,25,10,10"
                                                           materialDesign:HintAssist.Hint="Pick Date"
                                                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                         <!--NOTES-->
-                       <TextBox x:Name="Commision_Notes"
+                       <TextBox x:Name="COMMISSION_Notes"
                         Style="{StaticResource MaterialDesignTextFieldBoxTextBox}"
                         VerticalAlignment="Top"
                         AcceptsReturn="True"
@@ -230,12 +248,12 @@
 
                         <Grid>
                             <!--- Accept Button -->
-                            <Button x:Name="ADD_COMMISION_ACCEPT_BUTTON"
+                            <Button x:Name="ADD_COMMISSION_ACCEPT_BUTTON"
                                                             Style="{StaticResource MaterialDesignFlatButton}"
                                                             IsDefault="True"
                                                             Margin="0 8 8 0"
                                                             
-                                                            Click="ADD_COMMISION_ACCEPT_BUTTON_Click" HorizontalAlignment="Left">
+                                                            Click="ADD_COMMISSION_ACCEPT_BUTTON_Click" HorizontalAlignment="Left">
                                 <Button.CommandParameter>
                                     <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
                                         True
@@ -268,18 +286,14 @@
             <materialDesign:ColorZone x:Name="WindowBar" Mode="Accent" Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth0" MouseDown="WindowBar_MouseDown">
                 <Grid VerticalAlignment="Center">
                     <StackPanel Margin="0,0,300,0" Orientation="Horizontal" VerticalAlignment="Center">
-                        <ToggleButton IsChecked="False" x:Name="MenuToggleButton" materialDesign:ShadowAssist.ShadowDepth="Depth0" Foreground="#DDFFFFFF" Checked="MenuToggleButton_Checked" Unchecked="MenuToggleButton_Unchecked" RenderTransformOrigin="0.5,0.5" >
-                            <ToggleButton.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform Angle="-90"/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </ToggleButton.RenderTransform>
-                        </ToggleButton>
-
-                        <TextBlock x:Name="toolbar_title" Margin="10,0,0,0" VerticalAlignment="Center" Text="COMMISION.IO" Foreground="White" FontFamily="Lemon" FontSize="22" FontWeight="Normal" HorizontalAlignment="Center"/>
+                        <!--<Image gif:ImageBehavior.RepeatBehavior="1x" gif:ImageBehavior.AnimatedSource="COMMISSION.IO.gif" Height="25"/>-->
+                        <materialDesign:PackIcon Kind="CalendarText" VerticalAlignment="Center" HorizontalAlignment="Center" Width="25" Height="25" Foreground="#DDFFFFFF" />
+                        <TextBlock x:Name="toolbar_title" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="White" FontFamily="Quicksand" FontSize="24" FontWeight="Normal" HorizontalAlignment="Center">
+                        COMMISSION.<Bold>IO</Bold>
+                        </TextBlock>
+                        <TextBlock Foreground="{DynamicResource PrimaryHueLightBrush}" VerticalAlignment="Center" Margin="5,0,0,0" FontFamily="Quicksand">
+                            <Bold>ALPHA</Bold>
+                        </TextBlock>
                     </StackPanel>
                     <Grid HorizontalAlignment="Right">
                         <StackPanel Orientation="Horizontal">
@@ -310,25 +324,13 @@
                 </Grid>
             </materialDesign:ColorZone>
 
-
-
-
-
+            <TextBlock Visibility="Hidden" x:Name="txt_tester" HorizontalAlignment="Left" VerticalAlignment="Top">ALPHA TESTER BUILD v2.32</TextBlock>
         </Grid>
 
         <!--#endregion-->
 
-        <!--#region Edit Bar-->
-        <materialDesign:Snackbar
-         x:FieldModifier="public"
-         x:Name="editmode">
-            <materialDesign:SnackbarMessage x:Name="Commision_Delete" Content="Commision Edit"
-         ActionContent="DELETE" ActionClick="Commision_Delete_ActionClick">
-            </materialDesign:SnackbarMessage>
-        </materialDesign:Snackbar>
-        <!--#endregion-->
-
         <materialDesign:DialogHost Name="addhost"/>
+
 
         <!--!!!archived!!!-->
         
@@ -357,11 +359,11 @@
                                 <StackPanel Margin="0,20,0,0">
                                     <StackPanel>
                                         
-         --><!--Goto Commisions--><!-- 
+         --><!--Goto COMMISSIONs--><!-- 
         
                                         <Grid>
-                                            <Button x:Name="Commision_list" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" Click="Commision_list_Click" Width="200">
-                                                <TextBlock Text="COMMISIONS" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            <Button x:Name="COMMISSION_list" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" Click="COMMISSION_list_Click" Width="200">
+                                                <TextBlock Text="COMMISSIONS" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                             </Button>
                                         </Grid>
                                         

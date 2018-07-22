@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace Commision.io_WPF_add
+namespace COMMISSION.io_WPF_add
 {
     public class SampleDialogViewModel : INotifyPropertyChanged
     {

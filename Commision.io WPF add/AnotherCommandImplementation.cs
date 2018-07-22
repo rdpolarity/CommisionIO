@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Commision.io_WPF_add
+namespace COMMISSION.io_WPF_add
 {
     public class AnotherCommandImplementation : ICommand
     {

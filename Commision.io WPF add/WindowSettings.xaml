@@ -1,9 +1,9 @@
-﻿<Page x:Class="Commision.io_WPF_add.WindowSettings"
+﻿<Page x:Class="COMMISSION.io_WPF_add.WindowSettings"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Commision.io_WPF_add"
+      xmlns:local="clr-namespace:COMMISSION.io_WPF_add"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
@@ -25,36 +25,43 @@
     </Page.Resources>
     <Grid>
         <StackPanel>
-            <GroupBox Margin="10" HorizontalAlignment="Center">
-                <GroupBox.Header>
-                    <TextBlock HorizontalAlignment="Center" Foreground="White">COLOUR THEME</TextBlock>
-                </GroupBox.Header>
-                <Grid>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-
-                        <Button Name="Green" Style="{StaticResource themecircle}" Background="#4CAF50" BorderThickness="0"  Click="Green_Click" BorderBrush="{x:Null}"/>
-                        <Button Name="Blue" Style="{StaticResource themecircle}" Background="#2196F3" BorderThickness="0" Click="Blue_Click" BorderBrush="{x:Null}"/>
-                        <Button Name="Purple" Style="{StaticResource themecircle}" Background="#9C27B0" BorderThickness="0" Click="Purple_Click" BorderBrush="{x:Null}"/>
-                        <Button Name="Yellow" Style="{StaticResource themecircle}" Background="#FFEB3B" BorderThickness="0" Click="Yellow_Click" BorderBrush="{x:Null}"/>
-                        <Button Name="Orange" Style="{StaticResource themecircle}" Background="#FF9800" BorderThickness="0" Click="Orange_Click" BorderBrush="{x:Null}"/>
-                        <Button Name="Red" Style="{StaticResource themecircle}" Background="#F44336" BorderThickness="0" Click="Red_Click" BorderBrush="{x:Null}"/>
-
-                    </StackPanel>
-                </Grid>
-            </GroupBox>
-            <GroupBox HorizontalAlignment="Center">
-                <GroupBox.Header>
-                    <TextBlock Foreground="White" HorizontalAlignment="Center">PROPERTIES</TextBlock>
-                </GroupBox.Header>
+            <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="5" FontFamily="Quicksand" Width="350">
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="8">
-                        <materialDesign:PackIcon Kind="WeatherSunny" VerticalAlignment="Center" Foreground="White" />
-                        <ToggleButton Margin="5" Command="{Binding ToggleBaseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" VerticalAlignment="Center" />
-                        <materialDesign:PackIcon Kind="WeatherNight" VerticalAlignment="Center" Foreground="White" />
-                    </StackPanel>
+                    <Grid Background="{DynamicResource PrimaryHueLightBrush}">
+                        <TextBlock Foreground="{DynamicResource MaterialDesignPaper}" Margin="10" HorizontalAlignment="Center">COLOUR THEMES</TextBlock>
+                    </Grid>
+                    <Grid Height="80">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                            <Button Name="Green" Style="{StaticResource themecircle}" Background="#4CAF50" BorderThickness="0"  Click="Green_Click" BorderBrush="{x:Null}"/>
+                            <Button Name="Blue" Style="{StaticResource themecircle}" Background="#2196F3" BorderThickness="0" Click="Blue_Click" BorderBrush="{x:Null}"/>
+                            <Button Name="Purple" Style="{StaticResource themecircle}" Background="#9C27B0" BorderThickness="0" Click="Purple_Click" BorderBrush="{x:Null}"/>
+                            <Button Name="Yellow" Style="{StaticResource themecircle}" Background="#FFEB3B" BorderThickness="0" Click="Yellow_Click" BorderBrush="{x:Null}"/>
+                            <Button Name="Orange" Style="{StaticResource themecircle}" Background="#FF9800" BorderThickness="0" Click="Orange_Click" BorderBrush="{x:Null}"/>
+                            <Button Name="Red" Style="{StaticResource themecircle}" Background="#F44336" BorderThickness="0" Click="Red_Click" BorderBrush="{x:Null}"/>
+
+                        </StackPanel>
+                    </Grid>
+
                 </StackPanel>
-            </GroupBox>
+            </materialDesign:Card>
+
+            <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="5" FontFamily="Quicksand" Width="200">
+                <StackPanel>
+                    <Grid Background="{DynamicResource PrimaryHueLightBrush}">
+                        <TextBlock Foreground="{DynamicResource MaterialDesignPaper}"  Margin="10" HorizontalAlignment="Center">Light / Dark</TextBlock>
+                    </Grid>
+                    <Grid Height="80" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" Margin="8">
+                            <materialDesign:PackIcon Kind="WeatherSunny" VerticalAlignment="Center"/>
+                            <ToggleButton Margin="5" Command="{Binding ToggleBaseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked" VerticalAlignment="Center" />
+                            <materialDesign:PackIcon Kind="WeatherNight" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Grid>
+
+                </StackPanel>
+            </materialDesign:Card>
         </StackPanel>
     </Grid>
 </Page>
