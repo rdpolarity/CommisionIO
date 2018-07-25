@@ -23,7 +23,7 @@
     
         x:Class="COMMISSION.io_WPF_add.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="509.457" Width="684" ResizeMode="NoResize" Topmost="True" WindowStyle="None">
+        Title="MainWindow" Height="609.457" Width="784" ResizeMode="NoResize" Topmost="True" WindowStyle="None" Closing="WindowSet_Closing">
     <Window.Resources>
         <Style TargetType="Button" x:Key="themecircle" BasedOn="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
             <Setter Property="Command" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}, Path=DataContext.ApplyPrimaryCommand, Mode=OneTime}"/>
@@ -47,7 +47,7 @@
         
 
         <!--#region Help Message-->
-        <TextBlock x:Name="help_box" FontFamily="Quicksand" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#DDFFFFFF" TextAlignment="Center" FontSize="18">
+        <TextBlock x:Name="help_box" FontFamily="Quicksand" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#DDFFFFFF" TextAlignment="Center" FontSize="18" Opacity="0">
             PRESS THE <materialDesign:PackIcon Kind="PlusCircleOutline" Foreground="#DDFFFFFF" /> IN THE BOTTOM RIGHT OF THE APPLICATION TO ADD A COMMISSION
         </TextBlock>
         <!--#endregion-->
@@ -79,7 +79,7 @@
                     <TabItem Header="CONTACTS" FontFamily="Quicksand">
                         <Frame Name="con_instance"/>
                     </TabItem>
-                    <TabItem IsEnabled="False" Header="UPDATELOG" FontFamily="Quicksand">
+                    <TabItem Header="UPDATELOG" FontFamily="Quicksand">
                         <Frame Name="log_instance"/>
                     </TabItem>
                     <TabItem Name="setting" HorizontalAlignment="Left">
@@ -107,7 +107,7 @@
                         <TextBox x:Name="Client_Name"
                                                             materialDesign:HintAssist.Hint="Client Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                                             Margin="10"
-                                                            HorizontalAlignment="Stretch" Width="200" />
+                                                            HorizontalAlignment="Stretch" />
                         <TextBox x:Name="Client_Email"
                                                             materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                                             Margin="10"
@@ -116,13 +116,23 @@
                                                             materialDesign:HintAssist.Hint="Phone Number" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                                             Margin="10"
                                                             HorizontalAlignment="Stretch" />
+                        <GroupBox Header="Social" Margin="10">
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">https://www.deviantart.com/</TextBlock>
+                                <TextBox x:Name="Client_DeviantArt"
+                                                                materialDesign:HintAssist.Hint="DeviantArt Profile" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                                                HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        
+
                         <Grid>
                             <!--- Accept Button -->
                             <Button x:Name="ADD_CONTACT_ACCEPT_BUTTON"
                                                             Style="{StaticResource MaterialDesignFlatButton}"
                                                             IsDefault="True"
                                                             Margin="0 8 8 0"
-                                                            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                                                             Click="ADD_CONTACT_ACCEPT_BUTTON_Click" HorizontalAlignment="Left">
                                 <Button.CommandParameter>
                                     <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
@@ -156,7 +166,7 @@
             Margin="25"
             Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=addhost}"
             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-            ToolTip="Add A COMMISSION" VerticalAlignment="Bottom" materialDesign:ShadowAssist.ShadowDepth="Depth3" HorizontalAlignment="Right" Width="50" Height="50">
+            ToolTip="Add A COMMISSION" VerticalAlignment="Bottom" materialDesign:ShadowAssist.ShadowDepth="Depth3" HorizontalAlignment="Right" Width="50" Height="50" Click="Add_COMMISSION_Click_1">
                 <materialDesign:PackIcon
                 Kind="Plus"
                 Height="24"
@@ -174,7 +184,8 @@
                             </Ellipse>
                             <materialDesign:PackIcon Foreground="{DynamicResource MaterialDesignPaper}" Kind="Plus" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30" />
                         </Grid>
-                        <StackPanel Orientation="Horizontal">
+
+                        <!--<StackPanel Orientation="Horizontal">
                             <Button Name="Com_Clear" Style="{StaticResource themecircle}" Background="White" BorderThickness="1" BorderBrush="Black" Click="Com_Clear_Click"/>
                             <Button Name="Com_Green" Style="{StaticResource themecircle}" Background="#4CAF50" BorderThickness="0" BorderBrush="{x:Null}" Click="Com_Green_Click"/>
                             
@@ -182,7 +193,7 @@
                             <Button Name="Com_Yellow" Style="{StaticResource themecircle}" Background="#FFEB3B" BorderThickness="0" BorderBrush="{x:Null}" Click="Com_Yellow_Click"/>
                             <Button Name="Com_Orange" Style="{StaticResource themecircle}" Background="#FF9800" BorderThickness="0" BorderBrush="{x:Null}" Click="Com_Orange_Click"/>
                             <Button Name="Com_Red" Style="{StaticResource themecircle}" Background="#F44336" BorderThickness="0" BorderBrush="{x:Null}" Click="Com_Red_Click"/>
-                        </StackPanel>
+                        </StackPanel>-->
 
                         <TextBox MaxLength="12" x:Name="COMMISSION_Title"
                                                         materialDesign:HintAssist.Hint="Title" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -198,7 +209,7 @@
                         <TextBox MaxLength="4" x:Name="COMMISSION_Cost"
                                                         materialDesign:HintAssist.Hint="Cost" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                                         Margin="10"
-                                                        HorizontalAlignment="Stretch" />
+                                                        HorizontalAlignment="Stretch" PreviewTextInput="COMMISSION_Cost_PreviewTextInput" />
                         <StackPanel Orientation="Horizontal">
                             <Button x:Name="cost_5" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cost_5_Click">$5</Button>
                             <Button x:Name="cost_25" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="cost_25_Click">$25</Button>
@@ -324,16 +335,217 @@
                 </Grid>
             </materialDesign:ColorZone>
 
-            <TextBlock Visibility="Hidden" x:Name="txt_tester" HorizontalAlignment="Left" VerticalAlignment="Top">ALPHA TESTER BUILD v2.32</TextBlock>
+            
         </Grid>
 
         <!--#endregion-->
 
         <materialDesign:DialogHost Name="addhost"/>
 
-
-        <!--!!!archived!!!-->
+        <Image x:Name="sparkle"  IsHitTestVisible="False" Visibility="Hidden" gif:ImageBehavior.AnimatedSource="ALERT.gif"  Stretch="Fill" Width="100" Height="100" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+        </Image>
         
+
+        <!--Profile Dialog-->
+        <materialDesign:DialogHost Name="profilehost">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid Width="350" Height="600">
+                    <StackPanel>
+                        <Grid>
+                            <!--Blur Profile Image-->
+                            <Image x:Name="background_image" Stretch="UniformToFill" Height="200">
+                                <Image.Effect>
+                                    <BlurEffect Radius="50"/>
+                                </Image.Effect>
+                            </Image>
+                            <!--Colour Overlay-->
+                            <Rectangle Fill="{DynamicResource SecondaryAccentBrush}" Opacity="0.3"></Rectangle>
+                            <!--Profile Picture and Title-->
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Ellipse x:Name="Host_Profile_Picture" Height="90" Width="90" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Margin="5" x:Name="Profile_Title" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Quicksand" Foreground="#DDFFFFFF" FontWeight="Bold"/>
+                                <TextBlock FontFamily="Quicksand" Margin="1" x:Name="Profile_Name" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#DDFFFFFF"></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
+                        <Grid Background="#FFC7C7C7" Height="30">
+                            <TextBlock x:Name="Profile_Deadline" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Background="#FFECECEC" Height="30">
+                            <TextBlock x:Name="Profile_Cost"  Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        </Grid>
+
+
+                        <TextBox IsReadOnly="True" FontFamily="Quicksand" Margin="12" x:Name="Profile_Notes" Style="{StaticResource MaterialDesignTextFieldBoxTextBox}" materialDesign:HintAssist.Hint="NOTES" FontSize="12"/>
+                    </StackPanel>
+
+
+                    <!--- Accept Button -->
+                    <Button x:Name="Accept_Edit"
+                                                            Style="{StaticResource MaterialDesignFlatButton}"
+                                                            IsDefault="True"
+                                                            Margin="10"
+                                                            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                                             HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Accept_Edit_Click">
+
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                True
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                        <materialDesign:PackIcon Kind="Check" Width="16" Height="16" />
+                    </Button>
+
+                    <!--Edit Button-->
+                    <Button x:Name="proflie_edit"
+                            CommandTarget="{Binding ElementName=profiledithost}"
+                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                            Margin="10" Style="{StaticResource MaterialDesignFlatButton}"
+                            VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="Auto" Click="proflie_edit_Click">
+                        EDIT
+                    </Button>
+
+                    <!--- Close Button -->
+                    <Button x:Name="Close_Unselect"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        IsCancel="True"
+                        Margin="10"
+                        Command="materialDesign:DialogHost.CloseDialogCommand" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="Auto" Click="Close_Unselect_Click">
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                False
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                        <materialDesign:PackIcon Kind="Close" />
+                    </Button>
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        
+        <!--Edit Dialog-->
+        <materialDesign:DialogHost Name="profiledithost">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid>
+                    <StackPanel>
+                        <Grid>
+                            <materialDesign:ColorZone
+                                                Mode="Accent"
+                                                Background="{DynamicResource PrimaryHueLightBrush}"
+                                                Padding="6">
+                                            <StackPanel
+                                        Orientation="Horizontal" HorizontalAlignment="Center">
+                                                
+                                                <TextBlock
+                                                    Foreground="{DynamicResource SecondaryAccentBrush}"
+                                        Margin="8 0 0 0"
+                                        VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                EDIT COMMISSION
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </materialDesign:ColorZone>
+
+                                        <StackPanel Margin="16,50,16,16">
+
+                                            <!-- com profile Dialog -->
+
+                                            <Grid Width="75" Margin="1" Height="75">
+                                                <Ellipse x:Name="Edit_Picture" Fill="{DynamicResource SecondaryAccentBrush}" HorizontalAlignment="Center" Width="75" Height="75" StrokeThickness="3" MouseUp="Edit_Picture_MouseUp">
+                                                </Ellipse>
+                                                <materialDesign:PackIcon Foreground="{DynamicResource MaterialDesignPaper}" Kind="Plus" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30" />
+                                            </Grid>
+                                            <TextBox MaxLength="12" x:Name="edit_title"
+                                                        materialDesign:HintAssist.Hint="Title" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                                        Margin="10"
+                                                        HorizontalAlignment="Stretch">
+                                                <TextBox.Text>
+                                                    <Binding
+                                                         Path="Name"
+                                                         UpdateSourceTrigger="PropertyChanged">
+                                                    </Binding>
+                                                </TextBox.Text>
+                                            </TextBox>
+                                            <TextBox x:Name="edit_cost" MaxLength="4"
+                                                        materialDesign:HintAssist.Hint="Cost" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                                        Margin="10"
+
+                                                        HorizontalAlignment="Stretch" PreviewTextInput="edit_cost_PreviewTextInput"/>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <Button x:Name="editcost_5" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="editcost_5_Click">$5</Button>
+                                                <Button x:Name="editcost_25" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="editcost_25_Click">$25</Button>
+                                                <Button x:Name="editcost_50" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="editcost_50_Click">$50</Button>
+                                                <Button x:Name="editcost_75" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="editcost_75_Click">$75</Button>
+                                                <Button x:Name="editcost_100" Margin="2" FontSize="8" Style="{StaticResource MaterialDesignFlatButton}" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Click="editcost_100_Click">$100</Button>
+                                            </StackPanel>
+                                            <ComboBox x:Name="edit_client"
+                                                        materialDesign:HintAssist.Hint="Client"
+                                                        MinWidth="72"
+                                                        Margin="10,20,10,10"
+                                                        VerticalAlignment="Bottom"
+                                                        IsEditable="True"
+                                                        ItemsSource="{Binding LongListToTestComboVirtualization}">
+                                                <ComboBox.Text>
+                                                    <Binding
+                                                                Path="SelectedTextTwo"
+                                                                Mode="TwoWay"
+                                                                UpdateSourceTrigger="PropertyChanged">
+                                                        <Binding.ValidationRules>
+                                                        </Binding.ValidationRules>
+                                                    </Binding>
+                                                </ComboBox.Text>
+                                                <ComboBox.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <VirtualizingStackPanel/>
+                                                    </ItemsPanelTemplate>
+                                                </ComboBox.ItemsPanel>
+                                            </ComboBox>
+
+
+
+                                            <DatePicker x:Name="edit_deadline"
+                                                        HorizontalAlignment="Stretch"
+                                                        Margin="10,25,10,10"
+                                                          materialDesign:HintAssist.Hint="Pick Date"
+                                                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                            <!--NOTES-->
+                                <TextBox x:Name="edit_notes"
+                                                Style="{StaticResource MaterialDesignTextFieldBoxTextBox}"
+                                                VerticalAlignment="Top"
+                                                AcceptsReturn="True"
+                                                TextWrapping="Wrap"
+                                                MaxWidth="300"
+                                                materialDesign:HintAssist.Hint="Notes"
+                                             />
+                                <Grid Margin="5">
+                                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" x:Name="Profile_Delete" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="#FFF75530" Click="Profile_Delete_Click">DELETE</Button>
+                                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" x:Name="edit_confirm" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="edit_confirm_Click">CONFIRM</Button>
+                                </Grid>
+                            </StackPanel>
+                                    </Grid>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        
+        
+        <TextBlock Visibility="Hidden" x:Name="txt_tester" HorizontalAlignment="Left" VerticalAlignment="Top">ALPHA TESTER BUILD v2.32</TextBlock>
+
+        <!--archived-->
+
+        <!--<materialDesign:Flipper Width="350" Height="500" Margin="10">
+
+                    <materialDesign:Flipper.FrontContent>
+                        <materialDesign:Card Height="470"> 
+                           
+                        </materialDesign:Card>
+                    </materialDesign:Flipper.FrontContent>
+
+                    <materialDesign:Flipper.BackContent>
+                        <materialDesign:Card Height="490">
+                        </materialDesign:Card>
+                    </materialDesign:Flipper.BackContent>
+
+                </materialDesign:Flipper>-->
+
         <!--#region Menu Bar-->
 
         <!--<Grid>

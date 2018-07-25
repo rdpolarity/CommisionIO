@@ -99,3 +99,20 @@ C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io WPF add_Content.g.cs
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\HomePage.g.cs
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\HomePage.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Expression.Interactions.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.Prism.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.Prism.Interactivity.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.ServiceLocation.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Common.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Core.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Wpf.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.Prism.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.Prism.Interactivity.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.ServiceLocation.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Common.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Common.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Core.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Core.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Wpf.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Wpf.xml

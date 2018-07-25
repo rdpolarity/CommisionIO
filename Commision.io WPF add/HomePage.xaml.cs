@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static COMMISSION.io_WPF_add.MainWindow;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace COMMISSION.io_WPF_add
 {
@@ -46,9 +47,27 @@ namespace COMMISSION.io_WPF_add
             for (int i = 0; i < instances.compage.lbTodoList.Items.Count; i++)
             {
                 totalcost = totalcost + Convert.ToInt32(((TodoItem)instances.compage.lbTodoList.Items[i]).Cost.Trim(new Char[] { '$' }));
+
+                if (((TodoItem)instances.compage.lbTodoList.Items[i]).setcolour.ToString() == "#FFEBFFE8")
+                {
+                    totalcompleted += 1;
+                }
             }
 
             Total_Earnings.Text = "$" + Convert.ToString(totalcost);
-        }   
+
+            Total_finished.Text = Convert.ToString(totalcompleted);
+
+            Total_Unfinished.Text = Convert.ToString(instances.compage.lbTodoList.Items.Count - totalcompleted);
+
+            totalcompleted = 0;
+        }
+
+        int totalcompleted = 0;
+
+        SolidColorBrush completed = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ffebffe8"));
+        SolidColorBrush todo = Brushes.White;
+        SolidColorBrush wip = (SolidColorBrush)(new BrushConverter().ConvertFrom("#feffdd"));
+
     }
 }

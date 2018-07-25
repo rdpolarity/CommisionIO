@@ -10,86 +10,94 @@
       Title="HomePage">
 
     <Grid>
-        <materialDesign:TransitioningContent  OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
-            <StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <!--Row 1-->
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="5" FontFamily="Quicksand" Width="200" Height="150">
-                        <StackPanel>
-                            <Grid Background="{DynamicResource PrimaryHueLightBrush}">
-                                <TextBlock Foreground="{DynamicResource SecondaryAccentBrush}" Margin="10" HorizontalAlignment="Center">TOTAL COMMISSIONS</TextBlock>
-                            </Grid>
-                            <Grid Height="95">
-                                <Viewbox Margin="10" Stretch="Uniform">
-                                    <TextBlock Foreground="{DynamicResource PrimaryHueLightBrush}"  x:Name="Total_COMMISSIONs" FontWeight="Bold" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-                                </Viewbox>
-                            </Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <materialDesign:TransitioningContent  OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                        <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="5" FontFamily="Quicksand" Width="200" Height="150">
+                            <StackPanel>
+                                <Grid Background="{DynamicResource PrimaryHueLightBrush}">
+                                    <TextBlock Foreground="{DynamicResource SecondaryAccentBrush}" Margin="10" HorizontalAlignment="Center">TOTAL COMMISSIONS</TextBlock>
+                                </Grid>
+                                <Grid Height="95">
+                                    <Viewbox Margin="10" Stretch="Uniform">
+                                        <TextBlock Foreground="{DynamicResource PrimaryHueLightBrush}"  x:Name="Total_COMMISSIONs" FontWeight="Bold" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                                    </Viewbox>
+                                </Grid>
 
-                        </StackPanel>
-                    </materialDesign:Card>
+                            </StackPanel>
+                        </materialDesign:Card>
+                    </materialDesign:TransitioningContent>
 
-                    <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="5" FontFamily="Quicksand" Width="200" Height="150">
-                        <StackPanel>
-                            <Grid Background="{DynamicResource PrimaryHueLightBrush}">
-                                <TextBlock Foreground="{DynamicResource SecondaryAccentBrush}"  Margin="10" HorizontalAlignment="Center">TIME</TextBlock>
-                            </Grid>
-                            <Grid Height="95">
-                                <Viewbox Margin="10" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBlock Foreground="{DynamicResource PrimaryHueLightBrush}"  x:Name="Time_Update" FontWeight="Bold" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center">3:15</TextBlock>
-                                </Viewbox>
-                            </Grid>
+                    <materialDesign:TransitioningContent  OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                        <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="5" FontFamily="Quicksand" Width="200" Height="150">
+                            <StackPanel>
+                                <Grid Background="{DynamicResource PrimaryHueLightBrush}">
+                                    <TextBlock Foreground="{DynamicResource SecondaryAccentBrush}"  Margin="10" HorizontalAlignment="Center">TIME</TextBlock>
+                                </Grid>
+                                <Grid Height="95">
+                                    <Viewbox Margin="10" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Foreground="{DynamicResource PrimaryHueLightBrush}"  x:Name="Time_Update" FontWeight="Bold" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center">3:15</TextBlock>
+                                    </Viewbox>
+                                </Grid>
+                            </StackPanel>
+                        </materialDesign:Card>
 
-                        </StackPanel>
-                    </materialDesign:Card>
+                    </materialDesign:TransitioningContent>
 
-                    <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="5" FontFamily="Quicksand" Width="200" Height="150">
-                        <StackPanel>
-                            <Grid Background="{DynamicResource PrimaryHueLightBrush}">
-                                <TextBlock Foreground="{DynamicResource MaterialDesignPaper}"  Margin="10" HorizontalAlignment="Center">TOTAL EARNINGS</TextBlock>
-                            </Grid>
-                            <Grid Height="95">
-                                <Viewbox Margin="10" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBlock Foreground="{DynamicResource PrimaryHueLightBrush}"  x:Name="Total_Earnings" FontWeight="Bold" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center">$150000</TextBlock>
-                                </Viewbox>
-                            </Grid>
-
-                        </StackPanel>
-                    </materialDesign:Card>
+                    <materialDesign:TransitioningContent  OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                        <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="5" FontFamily="Quicksand" Width="200" Height="150">
+                            <StackPanel>
+                                <Grid Background="{DynamicResource PrimaryHueLightBrush}">
+                                    <TextBlock Foreground="{DynamicResource SecondaryAccentBrush}"  Margin="10" HorizontalAlignment="Center">TOTAL EARNINGS</TextBlock>
+                                </Grid>
+                                <Grid Height="95">
+                                    <Viewbox Margin="10" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Foreground="{DynamicResource PrimaryHueLightBrush}"  x:Name="Total_Earnings" FontWeight="Bold" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center">$150000</TextBlock>
+                                    </Viewbox>
+                                </Grid>
+                            </StackPanel>
+                        </materialDesign:Card>
+                    </materialDesign:TransitioningContent>
                 </StackPanel>
+
 
                 <!--Row 2-->
 
                 <StackPanel  Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
-                    <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="5" FontFamily="Quicksand" Width="200" Height="150">
-                        <StackPanel>
-                            <Grid Background="{DynamicResource PrimaryHueLightBrush}">
-                                <TextBlock Foreground="{DynamicResource MaterialDesignPaper}"  Margin="10" HorizontalAlignment="Center" FontSize="11">UN-COMPLETED COMMISSIONS</TextBlock>
-                            </Grid>
-                            <Grid Height="95">
-                                <Viewbox Margin="10" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBlock Foreground="{DynamicResource PrimaryHueLightBrush}"  x:Name="Total_Unfinished" FontWeight="Bold" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center">--</TextBlock>
-                                </Viewbox>
-                            </Grid>
+                    <materialDesign:TransitioningContent  OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                        <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="5" FontFamily="Quicksand" Width="200" Height="150">
+                            <StackPanel>
+                                <Grid Background="{DynamicResource PrimaryHueLightBrush}">
+                                    <TextBlock Foreground="{DynamicResource SecondaryAccentBrush}"  Margin="10" HorizontalAlignment="Center" FontSize="11">UN-COMPLETED COMMISSIONS</TextBlock>
+                                </Grid>
+                                <Grid Height="95">
+                                    <Viewbox Margin="10" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Foreground="{DynamicResource PrimaryHueLightBrush}"  x:Name="Total_Unfinished" FontWeight="Bold" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center">--</TextBlock>
+                                    </Viewbox>
+                                </Grid>
+                            </StackPanel>
+                        </materialDesign:Card>
+                    </materialDesign:TransitioningContent>
 
-                        </StackPanel>
-                    </materialDesign:Card>
-                    <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="5" FontFamily="Quicksand" Width="200" Height="150">
-                        <StackPanel>
-                            <Grid Background="{DynamicResource PrimaryHueLightBrush}">
-                                <TextBlock Foreground="{DynamicResource MaterialDesignPaper}"  Margin="10" HorizontalAlignment="Center">COMPLETED COMMISSIONS</TextBlock>
-                            </Grid>
-                            <Grid Height="95">
-                                <Viewbox Margin="10" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBlock Foreground="{DynamicResource PrimaryHueLightBrush}"  x:Name="Total_finished" FontWeight="Bold" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center">--</TextBlock>
-                                </Viewbox>
-                            </Grid>
-
-                        </StackPanel>
-                    </materialDesign:Card>
+                    <materialDesign:TransitioningContent  OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                        <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" Margin="5" FontFamily="Quicksand" Width="200" Height="150">
+                            <StackPanel>
+                                <Grid Background="{DynamicResource PrimaryHueLightBrush}">
+                                    <TextBlock Foreground="{DynamicResource SecondaryAccentBrush}"  Margin="10" HorizontalAlignment="Center">COMPLETED COMMISSIONS</TextBlock>
+                                </Grid>
+                                <Grid Height="95">
+                                    <Viewbox Margin="10" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Foreground="{DynamicResource PrimaryHueLightBrush}"  x:Name="Total_finished" FontWeight="Bold" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center">--</TextBlock>
+                                    </Viewbox>
+                                </Grid>
+                            </StackPanel>
+                        </materialDesign:Card>
+                    </materialDesign:TransitioningContent>
                 </StackPanel>
             </StackPanel>
-        </materialDesign:TransitioningContent>
     </Grid>
 </Page>

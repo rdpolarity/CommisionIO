@@ -1,0 +1,73 @@
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Commision.io WPF add.exe.config
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Commision.io WPF add.exe
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Commision.io WPF add.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\ControlzEx.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Dragablz.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\LoadingIndicators.WPF.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\MahApps.Metro.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\MaterialDesignColors.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\MaterialDesignThemes.MahApps.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Microsoft.Practices.Prism.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Microsoft.Practices.Prism.Interactivity.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\PixelLab.Common.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\PixelLab.Core.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\PixelLab.Wpf.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\WpfAnimatedGif.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\ControlzEx.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Dragablz.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Dragablz.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\LoadingIndicators.WPF.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\MahApps.Metro.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\MahApps.Metro.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\MaterialDesignColors.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Microsoft.Practices.Prism.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Microsoft.Practices.Prism.Interactivity.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\PixelLab.Common.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\PixelLab.Common.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\PixelLab.Core.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\PixelLab.Core.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\PixelLab.Wpf.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\PixelLab.Wpf.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Debug\WpfAnimatedGif.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Commision.io.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\MyCustomColour.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\App.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Commision Profile Window.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\fav.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\HomePage.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Pages\CommisionPage.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\CommisionTab.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\MainWindow.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Pages\ContactPage.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\TEST.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\WindowSettings.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\UpdateLog.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\App.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Commision.io WPF add_Content.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Commision.io WPF add_MarkupCompile.cache
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Commision.io WPF add_MarkupCompile.lref
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Commision Profile Window.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\fav.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\HomePage.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Pages\CommisionPage.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\CommisionTab.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\MainWindow.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Pages\ContactPage.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\TEST.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\WindowSettings.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\UpdateLog.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Commision.io WPF add.g.resources
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Commision.io_WPF_add.Properties.Resources.resources
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Commision.io.csproj.GenerateResource.Cache
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Commision.io.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Commision.io WPF add.exe
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Debug\Commision.io WPF add.pdb

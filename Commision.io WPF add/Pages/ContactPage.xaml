@@ -325,37 +325,204 @@
     </Page.Resources>
     
     <Grid>
-        <ScrollViewer PreviewMouseWheel="moveplease">
-            <ListView x:FieldModifier="public" Background="{DynamicResource MaterialDesignBody}" Name="lbTodoList2" HorizontalContentAlignment="Stretch">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <materialDesign:TransitioningContent>
-                            <materialDesign:ColorZone x:Name="Contact_box">
+        
+        <materialDesign:DialogHost Name="contactedithost">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid>
+                    <StackPanel>
+                        <Grid Width="300" Height="450">
+                            <materialDesign:ColorZone
+                                                Mode="Accent"
+                                                Background="{DynamicResource PrimaryHueLightBrush}"
+                                                Padding="6">
+                                            <StackPanel
+                                        Orientation="Horizontal" HorizontalAlignment="Center">
+                                                
+                                                <TextBlock
+                                                    Foreground="{DynamicResource SecondaryAccentBrush}"
+                                        Margin="8 0 0 0"
+                                        VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                EDIT COMMISSION
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </materialDesign:ColorZone>
 
+                                        <StackPanel Margin="16,50,16,16">
+
+                                            <!-- com profile Dialog -->
+
+                                            <Grid Width="75" Margin="1" Height="75">
+                                                <Ellipse x:Name="Edit_Picture" Fill="{DynamicResource SecondaryAccentBrush}" HorizontalAlignment="Center" Width="75" Height="75" StrokeThickness="3" MouseUp="Edit_Picture_MouseUp">
+                                                </Ellipse>
+                                                <materialDesign:PackIcon Foreground="{DynamicResource MaterialDesignPaper}" Kind="Plus" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30" />
+                                            </Grid>
+                                            
+                                            <TextBox MaxLength="12" x:Name="contact_edit_title"
+                                                        materialDesign:HintAssist.Hint="Title" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                                        Margin="10"
+                                                        HorizontalAlignment="Stretch"/>
+                                            
+                                            <TextBox MaxLength="12" x:Name="contact_edit_email"
+                                                        materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                                        Margin="10"
+                                                        HorizontalAlignment="Stretch"/>
+                                            <TextBox MaxLength="12" x:Name="contact_edit_phone"
+                                                        materialDesign:HintAssist.Hint="Phone" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                                        Margin="10"
+                                                        HorizontalAlignment="Stretch"/>
+                                            <GroupBox Header="Social" Margin="10">
+                                                <StackPanel Orientation="Horizontal" Margin="5">
+                                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">https://www.deviantart.com/</TextBlock>
+                                                    <TextBox x:Name="contact_edit_deviantart"
+                                                                                        materialDesign:HintAssist.Hint="DeviantArt Profile" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                                                                        HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                </StackPanel>
+                                            </GroupBox>
                                 <Grid>
-                                    <StackPanel Orientation="Horizontal">
-                                        <ToggleButton
-                                    Margin="10"
-                                    Width="25"
-                                    Height="25"
-                                    Content="C"
-                                    Style="{StaticResource MaterialDesignActionAccentToggleButton}"
-                                    IsChecked="True"
-                                    ToolTip="MaterialDesignActionAccentToggleButton" />
-                                        <TextBlock Margin="10" Text="{Binding ContactTitle}" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
-                                    </StackPanel>
-                                    <StackPanel HorizontalAlignment="Right">
-                                        <TextBlock Margin="10" Text="{Binding ContactEmail}"/>
-                                        <TextBlock Margin="10" Text="{Binding ContactPhone}"/>
-                                    </StackPanel>
+                                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" x:Name="edit_confirm" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Center" HorizontalAlignment="Center" Click="edit_confirm_Click">CONFIRM</Button>
+                            
+                                     </Grid>
+                                     </StackPanel>
+                                    </Grid>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
 
-                                </Grid>
+        <ScrollViewer PreviewMouseWheel="moveplease" VerticalAlignment="Top">
+            <Grid>
+                <!--Commision ListBox-->
+                <ListView Background="{DynamicResource MaterialDesignBody}" Name="lbTodoList2" HorizontalContentAlignment="Stretch">
 
-                            </materialDesign:ColorZone>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                            <Style.Triggers>
+                                <!--<Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="IsSelected" Value="True"/>
+                                </Trigger>-->
+                                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                    <Setter Property="IsSelected" Value="True"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <EventSetter Event="PreviewMouseDown" Handler="ItemOnPreviewMouseDown"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                   
+
+                    <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <materialDesign:TransitioningContent  OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                            <Grid Background="Transparent">
+                                <Grid.Style>
+                                    <Style TargetType="Grid">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Height" Value="130"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Grid.Style>
+                                
+                                <!--HoverMenu-->
+                                    <Grid VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                                            <Button CommandTarget="{Binding ElementName=contactedithost}" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Margin="5" x:Name="proflie_open" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="Auto" Click="contact_proflie_open_Click">
+                                                EDIT
+                                            </Button>
+                                            <Button x:Name="set_complete" Margin="5" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="Auto" Click="contact_delete" Foreground="#FFF54747">
+                                            DELETE
+                                        </Button>
+                                    </StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <Separator></Separator>
+                                        <Button Margin="5" x:Name="moveup" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="Auto" Click="moveup_Click">
+                                            <materialDesign:PackIcon Kind="ChevronUp"/>
+                                        </Button>
+                                        <Button Margin="5" x:Name="movedown" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="Auto" Click="movedown_Click">
+                                            <materialDesign:PackIcon Kind="ChevronDown"/>
+                                        </Button>
+                                    </StackPanel>
+                                    </Grid>
+
+                                <!--Commision List Template-->
+                                <materialDesign:ColorZone x:Name="CLIENT_BOX"
+                                    
+                                    Background="{DynamicResource MaterialDesignPaper}"
+                                                              
+                                    Mode="Standard"
+                                    CornerRadius="3"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                    Margin="5,5,0,5" Height="88">
+
+                                    <Grid>
+                                        <StackPanel
+                                            Orientation="Horizontal">
+
+                                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
+                                            <Ellipse x:Name="Contact_Picture" Margin="10" Width="60" Height="60" StrokeThickness="3">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush Stretch="UniformToFill" ImageSource="{Binding contactimagepath}"></ImageBrush>
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                            <Grid>
+                                                <StackPanel Orientation="Horizontal">
+                                                        <StackPanel VerticalAlignment="Center">
+                                                            <TextBlock FontFamily="Nexa Light" x:Name="Contact_Title_Box"
+                                                    VerticalAlignment="Center"
+                                                    Margin="5 0 0 0"
+                                                            
+                                                    Text="{Binding ContactTitle}">
+
+                                                            </TextBlock>
+                                                            <TextBlock FontFamily="Nexa Light" x:Name="Contact_Client_Box"
+                                                    VerticalAlignment="Center"
+                                                    Margin="5,0,0,0" FontSize="11"
+                                                    Text="{Binding ContactEmail}">
+
+                                                            </TextBlock>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                <!--<TextBox FontFamily="Nexa Light" Margin="100,10,10,10" Style="{StaticResource MaterialDesignTextFieldBoxTextBox}" materialDesign:HintAssist.Hint="NOTES" IsEnabled="False" x:Name="COMMISSION_Note_Box" TextWrapping="Wrap" Text="{Binding Notes}" HorizontalAlignment="Center" VerticalAlignment="Stretch" MinWidth="0" Width="200" MinHeight="0"/>-->
+
+                                            </Grid>
+                                        </StackPanel>
+
+                                        <!-- Faviorate Panel -->
+
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Orientation="Horizontal">
+
+                                            <TextBlock FontFamily="Nexa Light" Margin="5" x:Name="Contact_Phone" VerticalAlignment="Center"
+                                            Text="{Binding ContactPhone}">
+
+                                            </TextBlock>
+                                            <Button x:Name="btn_deviantart" Margin="5"  Style="{StaticResource MaterialDesignFlatButton}" Click="btn_deviantart_Click">
+                                                    <materialDesign:PackIcon Kind="Deviantart"/>
+                                            </Button>
+                                            
+
+                                            <TextBlock x:Name="link_deviantart" Visibility="Collapsed" Text="{Binding ContactDeviantArt}"></TextBlock>
+
+                                            <ToggleButton
+                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                            ToolTip="MaterialDesignFlatPrimaryToggleButton"
+                                            IsChecked="False" Background="#FFFFB3B3" Foreground="Red">
+                                                <materialDesign:PackIcon
+                                                Kind="Heart"
+                                                Height="21"
+                                                Width="21" />
+                                            </ToggleButton>
+                                        </StackPanel>
+                                    </Grid>
+                                </materialDesign:ColorZone>
+                            </Grid>
+
+
                         </materialDesign:TransitioningContent>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-            </ListView>
+                </ListView>
+            </Grid>
         </ScrollViewer>
     </Grid>
 </Page>

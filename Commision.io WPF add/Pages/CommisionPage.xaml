@@ -344,83 +344,14 @@
         </Style>
     </Page.Resources>
 
+
+
     <Grid>
-
-        <!--Profile Dialog-->
-        <materialDesign:DialogHost CloseOnClickAway="True" Name="addhost">
-            <materialDesign:DialogHost.DialogContent>
-                
-                <Grid Width="350" Height="500">
-                    <StackPanel>
-
-                        <Grid>
-                            <Image x:Name="background_image"  Stretch="UniformToFill" Height="150">
-                                <Image.Effect>
-                                    <BlurEffect Radius="150"/>
-                                </Image.Effect>
-                            </Image>
-                            <Button IsEnabled="False" Style="{StaticResource themecircle}" x:Name="Profile_Picture_Edit" Height="90" Width="90" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            
-                        </Grid>
-                        <Grid Background="#FFC7C7C7">
-                            <TextBox x:Name="Profile_Cost" IsReadOnly="True" Margin="3" HorizontalAlignment="Center"></TextBox>
-                        </Grid>
-                        <Grid Background="#FFECECEC">
-                            <TextBox x:Name="Profile_Deadline" IsReadOnly="True" Margin="3" HorizontalAlignment="Center"></TextBox>
-                        </Grid>
-                        <TextBox MaxLength="12" Margin="10" IsReadOnly="True" x:Name="Profile_Title" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nexa Bold">
-                        </TextBox>
-                        
-                        <TextBox FontFamily="Nexa Light" Margin="1" IsReadOnly="True" x:Name="Profile_Name" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
-                        <TextBox FontFamily="Nexa Light" Margin="5" IsReadOnly="True" x:Name="Profile_Notes" Style="{StaticResource MaterialDesignTextFieldBoxTextBox}" materialDesign:HintAssist.Hint="NOTES" FontSize="12"/>
-                    </StackPanel>
-
-                    <Button Visibility="Hidden" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" x:Name="Profile_Delete" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,60" Foreground="#FFF75530" Click="Profile_Delete_Click">DELETE</Button>
-
-                    <!--- Accept Button -->
-                    <Button x:Name="Accept_Edit"
-                                                            Style="{StaticResource MaterialDesignFlatButton}"
-                                                            IsDefault="True"
-                                                            Margin="10"
-                                                            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                                                             HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Accept_Edit_Click">
-
-                        <Button.CommandParameter>
-                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                True
-                            </system:Boolean>
-                        </Button.CommandParameter>
-                        <materialDesign:PackIcon Kind="Check" Width="16" Height="16" />
-                    </Button>
-
-                    <!--Edit Button-->
-                    <ToggleButton Margin="10" x:Name="btn_edit" Style="{StaticResource MaterialDesignFlatToggleButton}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="Auto" Checked="btn_edit_Checked" Unchecked="btn_edit_Unchecked">
-                        <materialDesign:PackIcon Margin="10" Kind="TableEdit" Foreground="#FF272727" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-                    </ToggleButton>
-
-                    <!--- Close Button -->
-                    <Button
-                        Style="{StaticResource MaterialDesignFlatButton}"
-                        IsCancel="True"
-                        Margin="10"
-                        Command="materialDesign:DialogHost.CloseDialogCommand" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="Auto">
-                        <Button.CommandParameter>
-                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                False
-                            </system:Boolean>
-                        </Button.CommandParameter>
-                        <materialDesign:PackIcon Kind="Close" />
-                    </Button>
-
-                </Grid>
-            </materialDesign:DialogHost.DialogContent>
-        </materialDesign:DialogHost>
-
         <!--Receipt Dialog-->
         <materialDesign:DialogHost CloseOnClickAway="True" Name="ReceiptDialog">
             <materialDesign:DialogHost.DialogContent>
                 <Grid Margin="10" Height="400" Width="320">
-                    <TextBox FontFamily="Nexa Light" Margin="5" IsReadOnly="True" x:Name="get_receipt" Style="{StaticResource MaterialDesignTextFieldBoxTextBox}" materialDesign:HintAssist.Hint="RECEIPT" FontSize="12" Height="350" VerticalAlignment="Top"/>
+                    <TextBox TextWrapping="Wrap" FontFamily="Nexa Light" Margin="5" IsReadOnly="True" x:Name="get_receipt" Style="{StaticResource MaterialDesignTextFieldBoxTextBox}" materialDesign:HintAssist.Hint="RECEIPT" FontSize="20" Height="350" VerticalAlignment="Top"/>
                     <Button
                         Style="{StaticResource MaterialDesignFlatButton}"
                         IsCancel="True"
@@ -436,15 +367,15 @@
                 </Grid>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
+
         
-        <!--COMMISSION List-->
-        <StackPanel Margin="5">
-            <Grid>
-                <StackPanel  Orientation="Horizontal">
-                    <StackPanel x:Name="add_chip_panel" Orientation="Horizontal">
-                        
-                    </StackPanel>
-                    <materialDesign:PopupBox
+        <!--Sorting Chips-->
+        <Grid Margin="5" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <StackPanel  Orientation="Horizontal">
+                <StackPanel x:Name="add_chip_panel" Orientation="Horizontal">
+
+                </StackPanel>
+                <materialDesign:PopupBox
                     Margin="5"
                     Background="{DynamicResource MaterialDesignPaper}"
                     BorderBrush="{DynamicResource MaterialDesignPaper}"
@@ -453,40 +384,129 @@
                     PlacementMode="BottomAndAlignCentres"
                     ToolTipService.Placement="Right"
                     HorizontalAlignment="Right" Width="30" Height="30">
-                        <StackPanel>
-                            <Button x:Name="sort_fav"
+                    <StackPanel>
+                        <Button x:Name="sort_fav"
                                 ToolTip="Favorite" Click="sort_fav_Click">
-                                <materialDesign:PackIcon
+                            <materialDesign:PackIcon
                                 Kind="Heart"
                                 />
-                            </Button>
-                            <Button x:Name="sort_alpha"
+                        </Button>
+                        <Button x:Name="sort_alpha"
                                 ToolTip="A-Z" Click="sort_alpha_Click">
-                                <materialDesign:PackIcon
+                            <materialDesign:PackIcon
                                 Kind="SortAlphabetical"
                                 />
-                            </Button>
-                            <Button x:Name="sort_date"
+                        </Button>
+                        <Button x:Name="sort_date"
                                 ToolTip="Date Added" Click="sort_date_Click">
-                                <materialDesign:PackIcon
+                            <materialDesign:PackIcon
                                 Kind="Calendar"
                                 />
-                            </Button>
-                        </StackPanel>
-                    </materialDesign:PopupBox>
-                </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+        </Grid>
+
+
+        <!--Commision Main Tab-->
+        <ScrollViewer PreviewMouseWheel="moveplease" VerticalAlignment="Top" Margin="0,45,0,0">
+            <Grid>
                 
-            </Grid>
-                <ScrollViewer PreviewMouseWheel="moveplease" x:Name="COMMISSIONViewer">
-                <ListView  SelectionChanged="lbTodoList_SelectionChanged" Background="{DynamicResource MaterialDesignBody}" Name="lbTodoList" HorizontalContentAlignment="Stretch" MouseDoubleClick="lbTodoList_MouseDoubleClick">
+                <!--1st 2nd 3rd Rankings-->
+                <Grid Margin="5,5,0,5" HorizontalAlignment="Left" Width="60">
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <Grid Height="100" VerticalAlignment="Top">
+                            <materialDesign:Card VerticalAlignment="Center" Width="40" Height="40">
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                            </materialDesign:Card>
+                        </Grid>
+                        <Grid Height="100" VerticalAlignment="Top">
+                            <materialDesign:Card VerticalAlignment="Center" Width="40" Height="40">
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                            </materialDesign:Card>
+                        </Grid>
+                        <Grid Height="100" VerticalAlignment="Top">
+                            <materialDesign:Card VerticalAlignment="Center" Width="40" Height="40">
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                            </materialDesign:Card>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+                
+                <!--Commision ListBox-->
+                <ListView Background="{DynamicResource MaterialDesignBody}" Name="lbTodoList" HorizontalContentAlignment="Stretch" MouseDoubleClick="lbTodoList_MouseDoubleClick" Margin="60,0,0,0">
+
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                            <Style.Triggers>
+                                <!--<Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="IsSelected" Value="True"/>
+                                </Trigger>-->
+                                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                    <Setter Property="IsSelected" Value="True"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <EventSetter Event="PreviewMouseDown" Handler="ItemOnPreviewMouseDown"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    
+                        <!--<Style TargetType="ListBoxItem" 
+                               BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                            <Style.Triggers>
+                                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                    <Setter Property="IsSelected" Value="True"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        --><!--</Style>-->
 
                     <ListBox.ItemTemplate>
                     <DataTemplate>
                         <materialDesign:TransitioningContent  OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+                            <Grid Background="Transparent">
+                                <Grid.Style>
+                                    <Style TargetType="Grid">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Height" Value="130"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Grid.Style>
+                                
+                                <!--HoverMenu-->
+                                    <Grid VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                                        <Button Margin="5" x:Name="proflie_open" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="Auto" Click="proflie_open_Click">
+                                            VIEW PROFILE
+                                        </Button>
+                                        <Rectangle Width="1" Height="10" Fill="White"></Rectangle>
+                                        <Button x:Name="set_todo" Margin="5" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="Auto" Click="set_todo_Click" Foreground="White">
+                                            TODO
+                                        </Button>
+                                        <Button x:Name="set_working" Margin="5" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="Auto" Click="set_working_Click" Foreground="#FFDBF36C">
+                                            WORKING ON IT
+                                        </Button>
+                                        <Button x:Name="set_complete" Margin="5" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="Auto" Click="set_complete_Click" Foreground="#FF6DD471">
+                                            COMPLETE
+                                        </Button>
+                                    </StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <Separator></Separator>
+                                        <Button Margin="5" x:Name="moveup" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="Auto" Click="moveup_Click">
+                                            <materialDesign:PackIcon Kind="ChevronUp"/>
+                                        </Button>
+                                        <Button Margin="5" x:Name="movedown" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="Auto" Click="movedown_Click">
+                                            <materialDesign:PackIcon Kind="ChevronDown"/>
+                                        </Button>
+                                    </StackPanel>
+                                    </Grid>
 
-                            <materialDesign:ColorZone x:Name="CLIENT_BOX"
+                                <!--Commision List Template-->
+                                <materialDesign:ColorZone x:Name="CLIENT_BOX"
                                     
-                                    Background="{DynamicResource MaterialDesignPaper}"
+                                    Background="{Binding setcolour}"
+                                                              
                                     Mode="Standard"
                                     CornerRadius="3"
                                     materialDesign:ShadowAssist.ShadowDepth="Depth2"
@@ -495,80 +515,77 @@
                                     <Grid>
                                         <StackPanel
                                             Orientation="Horizontal">
+
+                                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
                                             <Ellipse Stroke="{Binding outline}" x:Name="Profile_Picture" Margin="10" Width="60" Height="60" StrokeThickness="3">
                                                 <Ellipse.Fill>
                                                     <ImageBrush Stretch="UniformToFill" ImageSource="{Binding imagepath}"></ImageBrush>
                                                 </Ellipse.Fill>
                                             </Ellipse>
                                             <Grid>
-                                            <StackPanel Orientation="Horizontal">
-                                                <StackPanel VerticalAlignment="Center">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <StackPanel VerticalAlignment="Center">
                                                         <TextBlock FontFamily="Nexa Light" x:Name="COMMISSION_Title_Box"
                                                     VerticalAlignment="Center"
                                                     Margin="5 0 0 0"
                                                             
                                                     Text="{Binding Title}">
 
-                                                    </TextBlock>
+                                                        </TextBlock>
                                                         <TextBlock FontFamily="Nexa Light" x:Name="COMMISSION_Client_Box"
                                                     VerticalAlignment="Center"
                                                     Margin="5,0,0,0" FontSize="11"
                                                     Text="{Binding Client}">
 
-                                                    </TextBlock>
-                                                </StackPanel>
-                                                
+                                                        </TextBlock>
+                                                    </StackPanel>
 
-                                            </StackPanel>
+
+                                                </StackPanel>
                                                 <TextBox FontFamily="Nexa Light" Margin="100,10,10,10" Style="{StaticResource MaterialDesignTextFieldBoxTextBox}" materialDesign:HintAssist.Hint="NOTES" IsEnabled="False" x:Name="COMMISSION_Note_Box" TextWrapping="Wrap" Text="{Binding Notes}" HorizontalAlignment="Center" VerticalAlignment="Stretch" MinWidth="0" Width="200" MinHeight="0"/>
 
                                             </Grid>
-                                    </StackPanel>
+                                        </StackPanel>
 
-                                    <!-- Faviorate Panel -->
+                                        <!-- Faviorate Panel -->
 
-                                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Orientation="Horizontal">
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Orientation="Horizontal">
                                             <TextBlock FontFamily="Nexa Light" x:Name="COMMISSION_Date_Box"
                                             VerticalAlignment="Center"
                                             Margin="5"
                                             Text="{Binding Deadline}">
 
-                                        </TextBlock>
+                                            </TextBlock>
                                             <TextBlock FontFamily="Nexa Light" Margin="5" x:Name="COMMISSION_Cost" VerticalAlignment="Center"
                                             Text="{Binding Cost}">
 
-                                        </TextBlock>
+                                            </TextBlock>
                                             <Button x:Name="btn_reciet" Margin="5" CommandTarget="{Binding ElementName=ReceiptDialog}" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Style="{StaticResource MaterialDesignFlatButton}" Click="btn_reciet_Click">
                                                 <materialDesign:PackIcon Kind="BookOpen"/>
                                             </Button>
-                                        <ToggleButton
+                                            <ToggleButton
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             ToolTip="MaterialDesignFlatPrimaryToggleButton"
                                             IsChecked="False" Background="#FFFFB3B3" Foreground="Red">
-                                            <materialDesign:PackIcon
+                                                <materialDesign:PackIcon
                                                 Kind="Heart"
                                                 Height="21"
                                                 Width="21" />
-                                        </ToggleButton>
-                                    </StackPanel>
-                                </Grid>
-                            </materialDesign:ColorZone>
+                                            </ToggleButton>
+                                        </StackPanel>
+                                    </Grid>
+                                </materialDesign:ColorZone>
+                            </Grid>
+
 
                         </materialDesign:TransitioningContent>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-            </ListView>
-       </ScrollViewer> 
-        </StackPanel>
-
-
-
-        
-
-
-
-
+                </ListView>
+            </Grid>
+        </ScrollViewer>
     </Grid>
-    
-    
+
+
 </Page>

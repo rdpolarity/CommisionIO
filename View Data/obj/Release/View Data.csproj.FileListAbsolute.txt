@@ -1,0 +1,10 @@
+C:\Users\admin\Documents\Git Repos\CommisionIO\View Data\bin\Release\View Data.exe.config
+C:\Users\admin\Documents\Git Repos\CommisionIO\View Data\bin\Release\View Data.exe
+C:\Users\admin\Documents\Git Repos\CommisionIO\View Data\bin\Release\View Data.pdb
+C:\Users\admin\Documents\Git Repos\CommisionIO\View Data\obj\Release\View Data.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Git Repos\CommisionIO\View Data\obj\Release\View_Data.Form1.resources
+C:\Users\admin\Documents\Git Repos\CommisionIO\View Data\obj\Release\View_Data.Properties.Resources.resources
+C:\Users\admin\Documents\Git Repos\CommisionIO\View Data\obj\Release\View Data.csproj.GenerateResource.Cache
+C:\Users\admin\Documents\Git Repos\CommisionIO\View Data\obj\Release\View Data.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\Git Repos\CommisionIO\View Data\obj\Release\View Data.exe
+C:\Users\admin\Documents\Git Repos\CommisionIO\View Data\obj\Release\View Data.pdb
