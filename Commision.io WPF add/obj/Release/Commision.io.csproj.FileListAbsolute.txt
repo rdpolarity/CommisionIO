@@ -48,7 +48,6 @@ C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Commision.io WPF add.pdb
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\ControlzEx.dll
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Dragablz.dll
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\LoadingIndicators.WPF.dll
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\MahApps.Metro.dll
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\MaterialDesignColors.dll
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\MaterialDesignThemes.MahApps.dll
@@ -57,62 +56,46 @@ C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\ControlzEx.pdb
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Dragablz.pdb
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Dragablz.xml
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\LoadingIndicators.WPF.pdb
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\MahApps.Metro.pdb
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\MahApps.Metro.xml
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\MaterialDesignColors.pdb
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\MaterialDesignThemes.Wpf.pdb
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\MaterialDesignThemes.Wpf.xml
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io.csprojResolveAssemblyReference.cache
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\MyCustomColour.baml
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\App.baml
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Pages\CommisionPage.g.cs
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\CommisionTab.g.cs
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\MainWindow.g.cs
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Pages\ContactPage.g.cs
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\WindowSettings.g.cs
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\UpdateLog.g.cs
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\App.g.cs
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\GeneratedInternalTypeHelper.g.cs
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io WPF add_MarkupCompile.cache
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io WPF add_MarkupCompile.lref
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Pages\CommisionPage.baml
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\CommisionTab.baml
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\MainWindow.baml
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Pages\ContactPage.baml
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\WindowSettings.baml
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\UpdateLog.baml
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io WPF add.g.resources
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io_WPF_add.Properties.Resources.resources
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io.csproj.GenerateResource.Cache
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io.csproj.CoreCompileInputs.cache
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io WPF add.exe
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io WPF add.pdb
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\TEST.g.cs
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\TEST.baml
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision Profile Window.g.cs
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision Profile Window.baml
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\fav.g.cs
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\fav.baml
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\WpfAnimatedGif.dll
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\WpfAnimatedGif.xml
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io WPF add_Content.g.cs
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\HomePage.g.cs
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\HomePage.baml
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Expression.Interactions.dll
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.Prism.dll
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.Prism.Interactivity.dll
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.ServiceLocation.dll
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Common.dll
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Core.dll
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Wpf.dll
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.Prism.xml
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.Prism.Interactivity.xml
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.ServiceLocation.pdb
 C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Microsoft.Practices.ServiceLocation.xml
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Common.pdb
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Common.xml
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Core.pdb
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Core.xml
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Wpf.pdb
-C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\PixelLab.Wpf.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Google.Protobuf.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\MySql.Data.dll
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\Google.Protobuf.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\bin\Release\MySql.Data.xml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Commision.io.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\MainWindow.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\MainWindow.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Pages\WindowSettings.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Pages\WindowSettings.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Pages\UpdateLog.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Pages\UpdateLog.baml
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Pages\HomePage.g.cs
+C:\Users\admin\Documents\Git Repos\CommisionIO\Commision.io WPF add\obj\Release\Pages\HomePage.baml

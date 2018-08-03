@@ -15,6 +15,7 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         Title="ContactPage">
 
+    <!-- This resource changes the style (look) of the scrollbar -->
     <Page.Resources>
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="Black" />
@@ -325,7 +326,7 @@
     </Page.Resources>
     
     <Grid>
-        
+        <!--#region Edit Dialog for contacts -->
         <materialDesign:DialogHost Name="contactedithost">
             <materialDesign:DialogHost.DialogContent>
                 <Grid>
@@ -349,14 +350,7 @@
 
                                         <StackPanel Margin="16,50,16,16">
 
-                                            <!-- com profile Dialog -->
-
-                                            <Grid Width="75" Margin="1" Height="75">
-                                                <Ellipse x:Name="Edit_Picture" Fill="{DynamicResource SecondaryAccentBrush}" HorizontalAlignment="Center" Width="75" Height="75" StrokeThickness="3" MouseUp="Edit_Picture_MouseUp">
-                                                </Ellipse>
-                                                <materialDesign:PackIcon Foreground="{DynamicResource MaterialDesignPaper}" Kind="Plus" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30" />
-                                            </Grid>
-                                            
+                                            <!-- Contact Profile Dialog -->
                                             <TextBox MaxLength="12" x:Name="contact_edit_title"
                                                         materialDesign:HintAssist.Hint="Title" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                                         Margin="10"
@@ -378,28 +372,28 @@
                                                                                         HorizontalAlignment="Center" VerticalAlignment="Center" />
                                                 </StackPanel>
                                             </GroupBox>
-                                <Grid>
-                                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" x:Name="edit_confirm" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Center" HorizontalAlignment="Center" Click="edit_confirm_Click">CONFIRM</Button>
-                            
-                                     </Grid>
+                                         <Grid>
+                                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" x:Name="edit_confirm" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Center" HorizontalAlignment="Left" Click="edit_confirm_Click">CONFIRM</Button>
+                                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" x:Name="edit_cancel" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Center" HorizontalAlignment="Right">CANCEL</Button>
+                                        </Grid>
                                      </StackPanel>
                                     </Grid>
                     </StackPanel>
                 </Grid>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
+        <!--#endregion-->
 
+        <!--#region Contact Main Tab-->
         <ScrollViewer PreviewMouseWheel="moveplease" VerticalAlignment="Top">
             <Grid>
-                <!--Commision ListBox-->
-                <ListView Background="{DynamicResource MaterialDesignBody}" Name="lbTodoList2" HorizontalContentAlignment="Stretch">
+                <!--Contact ListBox-->
+                <ListView Background="{DynamicResource MaterialDesignBody}" Name="lstbox_contacts" HorizontalContentAlignment="Stretch">
 
+                    <!-- Makes sure listbox item is always selected -->
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
                             <Style.Triggers>
-                                <!--<Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="IsSelected" Value="True"/>
-                                </Trigger>-->
                                 <Trigger Property="IsKeyboardFocusWithin" Value="True">
                                     <Setter Property="IsSelected" Value="True"/>
                                 </Trigger>
@@ -413,6 +407,8 @@
                     <DataTemplate>
                         <materialDesign:TransitioningContent  OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
                             <Grid Background="Transparent">
+                                
+                                <!-- Changes height when mouse is over item -->
                                 <Grid.Style>
                                     <Style TargetType="Grid">
                                         <Style.Triggers>
@@ -423,7 +419,7 @@
                                     </Style>
                                 </Grid.Style>
                                 
-                                <!--HoverMenu-->
+                                     <!--HoverMenu-->
                                     <Grid VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
                                             <Button CommandTarget="{Binding ElementName=contactedithost}" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Margin="5" x:Name="proflie_open" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="Auto" Click="contact_proflie_open_Click">
@@ -444,7 +440,7 @@
                                     </StackPanel>
                                     </Grid>
 
-                                <!--Commision List Template-->
+                                <!--Contact List Template-->
                                 <materialDesign:ColorZone x:Name="CLIENT_BOX"
                                     
                                     Background="{DynamicResource MaterialDesignPaper}"
@@ -466,7 +462,7 @@
                                                 </Ellipse.Fill>
                                             </Ellipse>
                                             <Grid>
-                                                <StackPanel Orientation="Horizontal">
+                                                    <StackPanel Orientation="Horizontal">
                                                         <StackPanel VerticalAlignment="Center">
                                                             <TextBlock FontFamily="Nexa Light" x:Name="Contact_Title_Box"
                                                     VerticalAlignment="Center"
@@ -483,13 +479,11 @@
                                                             </TextBlock>
                                                         </StackPanel>
                                                     </StackPanel>
-                                                <!--<TextBox FontFamily="Nexa Light" Margin="100,10,10,10" Style="{StaticResource MaterialDesignTextFieldBoxTextBox}" materialDesign:HintAssist.Hint="NOTES" IsEnabled="False" x:Name="COMMISSION_Note_Box" TextWrapping="Wrap" Text="{Binding Notes}" HorizontalAlignment="Center" VerticalAlignment="Stretch" MinWidth="0" Width="200" MinHeight="0"/>-->
 
-                                            </Grid>
+                                                </Grid>
                                         </StackPanel>
 
-                                        <!-- Faviorate Panel -->
-
+                                        <!-- Right Side Panel -->
                                         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Orientation="Horizontal">
 
                                             <TextBlock FontFamily="Nexa Light" Margin="5" x:Name="Contact_Phone" VerticalAlignment="Center"
@@ -524,5 +518,6 @@
                 </ListView>
             </Grid>
         </ScrollViewer>
+        <!--#endregion-->
     </Grid>
 </Page>

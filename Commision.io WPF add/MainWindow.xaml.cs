@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Input;
 using System.Xml;
 using COMMISSION.io_WPF_add.Properties;
-using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,6 +18,8 @@ using System.Windows.Media.Imaging;
 using System.Linq;
 using Control = System.Windows.Controls.Control;
 using MessageBox = System.Windows.Forms.MessageBox;
+using MySql.Data.MySqlClient;
+using MaterialDesignColors;
 
 namespace COMMISSION.io_WPF_add
 {
@@ -31,8 +32,7 @@ namespace COMMISSION.io_WPF_add
         {
             InitializeComponent();
 
-            testermode = true;
-            ChloeMode = false;
+            testermode = false;
             buildversion = 3.52;
 
             //time start
@@ -51,11 +51,17 @@ namespace COMMISSION.io_WPF_add
             Swatches = new SwatchesProvider().Swatches;
         }
 
+        ContactPage currentContactWindow = System.Windows.Application.Current.Windows.OfType<ContactPage>().FirstOrDefault();
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             EnableBlur();
 
             loadxml();
+
+            instances.conpage.loadcontactxml();
+
+
 
             if (testermode == true)
             {
@@ -68,21 +74,8 @@ namespace COMMISSION.io_WPF_add
                 txt_tester.Visibility = Visibility.Visible;
             }
 
-            if (ChloeMode == true)
-            {
-                System.Windows.Forms.MessageBox.Show("<3");
-            }
-
-            if (ChloeMode == true)
-            {
-                txt_tester.Text = "SECRET BUILD <3";
-                txt_tester.Visibility = Visibility.Visible;
-            }
-
-
-
-            //instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = "[Full] Mei Mei", Cost = "$20", Client = "AydieMe", Deadline = "3/25/2016", Notes = "- AA", imagepath = @"E:\DESKTOP\PP.png", outline = "red", setcolour = todo});
-            //instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = "[Full] Cloudy", Cost = "$15", Client = "FileZekk", Deadline = "3/25/2016", Notes = "- AAAAA", imagepath = @"E:\DESKTOP\1371414.jpg", outline = "transparent", setcolour = todo});
+            //instances.compage.lstbox_commission.Items.Add(new TodoItem() { Title = "[Full] Mei Mei", Cost = "$20", Client = "AydieMe", Deadline = "3/25/2016", Notes = "- AA", imagepath = @"E:\DESKTOP\PP.png", outline = "red", setcolour = todo});
+            //instances.compage.lstbox_commission.Items.Add(new TodoItem() { Title = "[Full] Cloudy", Cost = "$15", Client = "FileZekk", Deadline = "3/25/2016", Notes = "- AAAAA", imagepath = @"E:\DESKTOP\1371414.jpg", outline = "transparent", setcolour = todo});
 
             hidehelp = true;
 
@@ -102,7 +95,6 @@ namespace COMMISSION.io_WPF_add
         //Program Properties
         public bool testermode;
         public double buildversion; 
-        public bool ChloeMode;
 
         //Commision Variables
         public static string title;
@@ -141,6 +133,7 @@ namespace COMMISSION.io_WPF_add
             public string ContactPhone { get; set; }
             public string ContactEmail { get; set; }
             public string ContactDeviantArt { get; set; }
+            public string contactimagepath { get; set; }
         }
 
         //Find File Dialog
@@ -225,6 +218,15 @@ namespace COMMISSION.io_WPF_add
         #endregion
 
         #region Window Events
+        //Detect when window is closing then save XML
+        private void WindowSet_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            savexml();
+            instances.conpage.savecontactxml();
+
+            //saveMySQL();
+        }
+
         //window drag / move
         private void WindowBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -290,7 +292,6 @@ namespace COMMISSION.io_WPF_add
             // if found....
             if (node != null)
             {
-                // get its parent node
                 XmlNode parent = node.ParentNode;
 
                 // remove the child node
@@ -310,16 +311,16 @@ namespace COMMISSION.io_WPF_add
             XmlAttribute attr = XmlDocObj.CreateAttribute("ID");
             attr.Value = "first";
 
-            for (int i = 0; i < instances.compage.lbTodoList.Items.Count; i++)
+            for (int i = 0; i < instances.compage.lstbox_commission.Items.Count; i++)
             {
-                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Title", "")).InnerText = ((TodoItem)instances.compage.lbTodoList.Items[i]).Title;
-                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Cost", "")).InnerText = ((TodoItem)instances.compage.lbTodoList.Items[i]).Cost;
-                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Client", "")).InnerText = ((TodoItem)instances.compage.lbTodoList.Items[i]).Client;
-                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Deadline", "")).InnerText = ((TodoItem)instances.compage.lbTodoList.Items[i]).Deadline;
-                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Notes", "")).InnerText = ((TodoItem)instances.compage.lbTodoList.Items[i]).Notes;
-                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Imagepath", "")).InnerText = ((TodoItem)instances.compage.lbTodoList.Items[i]).imagepath;
-                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Outline", "")).InnerText = ((TodoItem)instances.compage.lbTodoList.Items[i]).outline;
-                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "SetColour", "")).InnerText = ((TodoItem)instances.compage.lbTodoList.Items[i]).setcolour.ToString();
+                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Title", "")).InnerText = ((TodoItem)instances.compage.lstbox_commission.Items[i]).Title;
+                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Cost", "")).InnerText = ((TodoItem)instances.compage.lstbox_commission.Items[i]).Cost;
+                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Client", "")).InnerText = ((TodoItem)instances.compage.lstbox_commission.Items[i]).Client;
+                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Deadline", "")).InnerText = ((TodoItem)instances.compage.lstbox_commission.Items[i]).Deadline;
+                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Notes", "")).InnerText = ((TodoItem)instances.compage.lstbox_commission.Items[i]).Notes;
+                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Imagepath", "")).InnerText = ((TodoItem)instances.compage.lstbox_commission.Items[i]).imagepath;
+                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "Outline", "")).InnerText = ((TodoItem)instances.compage.lstbox_commission.Items[i]).outline;
+                bookNode.AppendChild(XmlDocObj.CreateNode(XmlNodeType.Element, "SetColour", "")).InnerText = ((TodoItem)instances.compage.lstbox_commission.Items[i]).setcolour.ToString();
             }
 
             //Add the attribute to the node     
@@ -348,7 +349,7 @@ namespace COMMISSION.io_WPF_add
 
             for (int i = 0; i < xmlTitle.Count; i++)
             {
-                instances.compage.lbTodoList.Items.Add(new TodoItem()
+                instances.compage.lstbox_commission.Items.Add(new TodoItem()
                 {
                     Title = xmlTitle[i].InnerXml,
                     Cost = xmlCost[i].InnerXml,
@@ -367,6 +368,60 @@ namespace COMMISSION.io_WPF_add
             //deadline = Convert.ToString(XmlDocObj.SelectSingleNode("COMMISSIONs/entry/Deadline").InnerText);
         }
         #endregion
+
+        #region MySQL Methods
+
+        MySqlConnection connection = new MySqlConnection("server=db4free.net;UID=rdpolarity2;PWD=eatme123;database=commisionws2;old guids=true");
+
+        public void saveMySQL()
+        {
+            try
+            {
+                connection.Open();
+                Console.WriteLine("[Connected!]");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[Disconnected!] " + ex);
+            }
+
+            //Clear Table
+            string ClearQuery = "TRUNCATE TABLE commisionws2.CommissionList;";
+
+            MySqlCommand SendClearCommand = new MySqlCommand(ClearQuery, connection);
+            SendClearCommand.ExecuteNonQuery();
+
+            for (int i = 0; i < instances.compage.lstbox_commission.Items.Count; i++)
+            {
+                string Title = "ates";//((TodoItem)instances.compage.lstbox_commission.Items[i]).Title;
+                int Cost = 3; //Convert.ToInt32(((TodoItem)instances.compage.lstbox_commission.Items[1]).Cost.Trim(new Char[] { '$' }));
+                string Client = "dawd"; //((TodoItem)instances.compage.lstbox_commission.Items[1]).Client;
+                string Deadline = "fewf"; //((TodoItem)instances.compage.lstbox_commission.Items[1]).Deadline;
+                string Notes = "wefw"; //((TodoItem)instances.compage.lstbox_commission.Items[1]).Notes;
+                string Setcolour = "awdasd"; //((TodoItem)instances.compage.lstbox_commission.Items[1]).setcolour.ToString();
+
+                //Add to Table
+                string AddQuery = "insert into commisionws2.CommissionList(Title,Cost,Client,Deadline,Notes,Setcolour) " + "values(" +
+                    "'" + Title + "'," +
+                    "'" + Cost + "'," +
+                    "'" + Client + "'," +
+                    "'" + Deadline + "'," +
+                    "'" + Notes + "'," +
+                    "'" + Setcolour + "');";
+
+                MySqlCommand SendAddCommand = new MySqlCommand(AddQuery, connection);
+                SendAddCommand.ExecuteNonQuery();
+
+                Console.WriteLine("[Sent {0} Data!]",i);
+            }
+        }
+
+        public void loadMySQL()
+        {
+
+        }
+
+       #endregion
 
         #region Commision Add
         //Commision Add Cost button presets
@@ -439,7 +494,7 @@ namespace COMMISSION.io_WPF_add
 
             if (op.FileName == "")
             {
-                op.FileName = Environment.CurrentDirectory + @"\Profile_Unknown.png";
+                op.FileName = @"Resources\Profile_Unknown.png";
             }
 
             MessageBox.Show(op.FileName);
@@ -453,7 +508,7 @@ namespace COMMISSION.io_WPF_add
                         if (deadline != "")
                         {
                             DialogHost.CloseDialogCommand.Execute(new object(), null);
-                            instances.compage.lbTodoList.Items.Add(new TodoItem() { Title = title, Completion = 45, Cost = cost, Client = client, Deadline = deadline, Notes = notes, imagepath = op.FileName, outline = setoutlinecolour, setcolour = Brushes.White });
+                            instances.compage.lstbox_commission.Items.Add(new TodoItem() { Title = title, Completion = 45, Cost = cost, Client = client, Deadline = deadline, Notes = notes, imagepath = op.FileName, outline = setoutlinecolour, setcolour = Brushes.White });
                             txt_warning.Visibility = Visibility.Hidden;
                             op.FileName = "";
                         }
@@ -486,6 +541,31 @@ namespace COMMISSION.io_WPF_add
         #endregion
 
         #region Edit Commision
+        //INTEGER ONLY INPUT TEXTBOX
+        private void edit_cost_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            try
+            {
+                Convert.ToInt32(e.Text);
+            }
+            catch
+            {
+                e.Handled = true;
+            }
+        }
+
+        //Delete selected commision
+        private void Profile_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            while (instances.compage.lstbox_commission.SelectedItems.Count > 0)
+            {
+                var index = instances.compage.lstbox_commission.Items.IndexOf(instances.compage.lstbox_commission.SelectedItem);
+                instances.compage.lstbox_commission.Items.RemoveAt(index);
+            }
+
+            profilehost.IsOpen = false;
+        }
+
         //Profile image edit
         public void Edit_Picture_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -569,15 +649,15 @@ namespace COMMISSION.io_WPF_add
         //Confirm edited settings
         private void Accept_Edit_Click(object sender, RoutedEventArgs e)
         {
-            int index = instances.compage.lbTodoList.SelectedIndex;
+            int index = instances.compage.lstbox_commission.SelectedIndex;
 
-            string imagereset = ((TodoItem)instances.compage.lbTodoList.Items[index]).imagepath;
+            string imagereset = ((TodoItem)instances.compage.lstbox_commission.Items[index]).imagepath;
 
 
 
             if (op.FileName != "")
             {
-                instances.compage.lbTodoList.Items.Insert(index, new TodoItem()
+                instances.compage.lstbox_commission.Items.Insert(index, new TodoItem()
                 {
                     Title = Profile_Title.Text,
                     Cost = Profile_Cost.Text,
@@ -586,12 +666,12 @@ namespace COMMISSION.io_WPF_add
                     Notes = Profile_Notes.Text,
                     imagepath = op.FileName,
                     outline = "transparent",
-                    setcolour = ((TodoItem)instances.compage.lbTodoList.Items[index]).setcolour
+                    setcolour = ((TodoItem)instances.compage.lstbox_commission.Items[index]).setcolour
                 });
             }
             if (op.FileName == "")
             {
-                instances.compage.lbTodoList.Items.Insert(index, new TodoItem()
+                instances.compage.lstbox_commission.Items.Insert(index, new TodoItem()
                 {
                     Title = Profile_Title.Text,
                     Cost = Profile_Cost.Text,
@@ -600,17 +680,17 @@ namespace COMMISSION.io_WPF_add
                     Notes = Profile_Notes.Text,
                     imagepath = imagereset,
                     outline = "transparent",
-                    setcolour = ((TodoItem)instances.compage.lbTodoList.Items[index]).setcolour
+                    setcolour = ((TodoItem)instances.compage.lstbox_commission.Items[index]).setcolour
                 });
             }
 
-            instances.compage.lbTodoList.Items.RemoveAt(index + 1);
+            instances.compage.lstbox_commission.Items.RemoveAt(index + 1);
 
             op.FileName = "";
         }
         #endregion
 
-        #region Other Code
+        #region Timer
         //timer settings
         System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
         private void SetTimerInterrupts()
@@ -625,7 +705,7 @@ namespace COMMISSION.io_WPF_add
         {
             //finds total and hides / shows help message
 
-            int sum = instances.compage.lbTodoList.Items.Count;
+            int sum = instances.compage.lstbox_commission.Items.Count;
 
             if (hidehelp == true)
             {
@@ -646,6 +726,10 @@ namespace COMMISSION.io_WPF_add
                 help_box.Visibility = Visibility.Hidden;
             }
         }
+        #endregion
+
+        #region Other Code
+
 
         //Contact Dialog Host Accept
         public void ADD_CONTACT_ACCEPT_BUTTON_Click(object sender, RoutedEventArgs e)
@@ -660,13 +744,14 @@ namespace COMMISSION.io_WPF_add
 
             if (Client_Name.Text != "")
             {
-                instances.conpage.lbTodoList2.Items.Add(new TodoItem2()
+                instances.conpage.lstbox_contacts.Items.Add(new TodoItem2()
                 {
                     ContactTitle = Client_Name.Text,
                     ContactEmail = Client_Phone.Text,
                     ContactPhone = Client_Email.Text,
-                    ContactDeviantArt = Client_DeviantArt.Text
-                });
+                    ContactDeviantArt = Client_DeviantArt.Text,
+                    contactimagepath = @"Resources\Profile_Unknown.png"
+            });
                 DialogHost.CloseDialogCommand.Execute(new object(), null);
             }
         }
@@ -720,36 +805,11 @@ namespace COMMISSION.io_WPF_add
             }
         }
 
-        //INTEGER ONLY INPUT TEXTBOX
-        private void edit_cost_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            try
-            {
-                Convert.ToInt32(e.Text);
-            }
-            catch
-            {
-                e.Handled = true;
-            }
-        }
 
-        //Delete selected commision
-        private void Profile_Delete_Click(object sender, RoutedEventArgs e)
-        {
-            while (instances.compage.lbTodoList.SelectedItems.Count > 0)
-            {
-                var index = instances.compage.lbTodoList.Items.IndexOf(instances.compage.lbTodoList.SelectedItem);
-                instances.compage.lbTodoList.Items.RemoveAt(index);
-            }
 
-            profilehost.IsOpen = false;
-        }
 
-        //Detect when window is closing then save XML
-        private void WindowSet_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            savexml();
-        }
+
+
 
         //INTEGER ONLY INPUT TEXTBOX
         private void COMMISSION_Cost_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -767,9 +827,18 @@ namespace COMMISSION.io_WPF_add
 
         #endregion
 
+
         private void Close_Unselect_Click(object sender, RoutedEventArgs e)
         {
-            instances.compage.lbTodoList.UnselectAll();
+            instances.compage.lstbox_commission.UnselectAll();
+        }
+
+        private void Add_Contact_Click(object sender, RoutedEventArgs e)
+        {
+            Client_Name.Text = "";
+            Client_Email.Text = "";
+            Client_Phone.Text = "";
+            Client_DeviantArt.Text = "";
         }
     }
 }

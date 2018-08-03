@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("commision.io_1.avi")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("contactdata.xml")]
 
 

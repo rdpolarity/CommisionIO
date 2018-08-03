@@ -15,7 +15,7 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         Title="COMMISSIONPage">
 
-
+    <!-- This resource changes the style (look) of the scrollbar -->
     <Page.Resources>
 
         <Style TargetType="Button" x:Key="themecircle" BasedOn="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
@@ -347,7 +347,7 @@
 
 
     <Grid>
-        <!--Receipt Dialog-->
+        <!--#region Receipt PopUp Dialog-->
         <materialDesign:DialogHost CloseOnClickAway="True" Name="ReceiptDialog">
             <materialDesign:DialogHost.DialogContent>
                 <Grid Margin="10" Height="400" Width="320">
@@ -367,9 +367,9 @@
                 </Grid>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
-
+        <!--#endregion-->
         
-        <!--Sorting Chips-->
+        <!--#region Sorting Chips-->
         <Grid Margin="5" VerticalAlignment="Top" HorizontalAlignment="Left">
             <StackPanel  Orientation="Horizontal">
                 <StackPanel x:Name="add_chip_panel" Orientation="Horizontal">
@@ -407,42 +407,19 @@
                 </materialDesign:PopupBox>
             </StackPanel>
         </Grid>
+        <!--#endregion-->
 
-
-        <!--Commision Main Tab-->
+        <!--#region Commision Main Tab -->
         <ScrollViewer PreviewMouseWheel="moveplease" VerticalAlignment="Top" Margin="0,45,0,0">
             <Grid>
-                
-                <!--1st 2nd 3rd Rankings-->
-                <Grid Margin="5,5,0,5" HorizontalAlignment="Left" Width="60">
-                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
-                        <Grid Height="100" VerticalAlignment="Top">
-                            <materialDesign:Card VerticalAlignment="Center" Width="40" Height="40">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-                            </materialDesign:Card>
-                        </Grid>
-                        <Grid Height="100" VerticalAlignment="Top">
-                            <materialDesign:Card VerticalAlignment="Center" Width="40" Height="40">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-                            </materialDesign:Card>
-                        </Grid>
-                        <Grid Height="100" VerticalAlignment="Top">
-                            <materialDesign:Card VerticalAlignment="Center" Width="40" Height="40">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-                            </materialDesign:Card>
-                        </Grid>
-                    </StackPanel>
-                </Grid>
-                
+               
                 <!--Commision ListBox-->
-                <ListView Background="{DynamicResource MaterialDesignBody}" Name="lbTodoList" HorizontalContentAlignment="Stretch" MouseDoubleClick="lbTodoList_MouseDoubleClick" Margin="60,0,0,0">
+                <ListView Background="{DynamicResource MaterialDesignBody}" Name="lstbox_commission" HorizontalContentAlignment="Stretch">
 
+                    <!-- Makes sure listbox item is always selected -->
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
                             <Style.Triggers>
-                                <!--<Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="IsSelected" Value="True"/>
-                                </Trigger>-->
                                 <Trigger Property="IsKeyboardFocusWithin" Value="True">
                                     <Setter Property="IsSelected" Value="True"/>
                                 </Trigger>
@@ -450,20 +427,13 @@
                             <EventSetter Event="PreviewMouseDown" Handler="ItemOnPreviewMouseDown"/>
                         </Style>
                     </ListBox.ItemContainerStyle>
-                    
-                        <!--<Style TargetType="ListBoxItem" 
-                               BasedOn="{StaticResource {x:Type ListBoxItem}}">
-                            <Style.Triggers>
-                                <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                                    <Setter Property="IsSelected" Value="True"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        --><!--</Style>-->
 
                     <ListBox.ItemTemplate>
                     <DataTemplate>
                         <materialDesign:TransitioningContent  OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
                             <Grid Background="Transparent">
+                                
+                                <!-- Changes height when mouse is over item -->
                                 <Grid.Style>
                                     <Style TargetType="Grid">
                                         <Style.Triggers>
@@ -474,7 +444,7 @@
                                     </Style>
                                 </Grid.Style>
                                 
-                                <!--HoverMenu-->
+                                    <!--HoverMenu-->
                                     <Grid VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left">
                                         <Button Margin="5" x:Name="proflie_open" Style="{StaticResource MaterialDesignFlatButton}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="Auto" Click="proflie_open_Click">
@@ -548,8 +518,7 @@
                                             </Grid>
                                         </StackPanel>
 
-                                        <!-- Faviorate Panel -->
-
+                                        <!-- Ride Side Panel -->
                                         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Orientation="Horizontal">
                                             <TextBlock FontFamily="Nexa Light" x:Name="COMMISSION_Date_Box"
                                             VerticalAlignment="Center"
@@ -585,6 +554,7 @@
                 </ListView>
             </Grid>
         </ScrollViewer>
+        <!--#endregion-->
     </Grid>
 
 

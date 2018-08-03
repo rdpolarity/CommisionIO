@@ -10,7 +10,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="WindowSet" 
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         xmlns:materialDesignColors="clr-namespace:MaterialDesignColors;assembly=MaterialDesignColors"
-        Background="#05000000"
+        Background="#33FFFFFF"
         Loaded="Window_Loaded"
         AllowsTransparency="True"
         xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
@@ -23,7 +23,7 @@
     
         x:Class="COMMISSION.io_WPF_add.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="609.457" Width="784" ResizeMode="NoResize" Topmost="True" WindowStyle="None" Closing="WindowSet_Closing">
+        Title="MainWindow" Height="609.457" Width="784" ResizeMode="NoResize" Topmost="True" WindowStyle="None" Closing="WindowSet_Closing" Foreground="#DDFFFFFF">
     <Window.Resources>
         <Style TargetType="Button" x:Key="themecircle" BasedOn="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
             <Setter Property="Command" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}, Path=DataContext.ApplyPrimaryCommand, Mode=OneTime}"/>
@@ -40,11 +40,7 @@
         </Style>
     </Window.Resources>
 
-
-
     <Grid>
-
-        
 
         <!--#region Help Message-->
         <TextBlock x:Name="help_box" FontFamily="Quicksand" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#DDFFFFFF" TextAlignment="Center" FontSize="18" Opacity="0">
@@ -96,7 +92,7 @@
             Margin="25"
             Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=addhost}"
             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-            ToolTip="Add A COMMISSION" VerticalAlignment="Bottom" materialDesign:ShadowAssist.ShadowDepth="Depth3" HorizontalAlignment="Right" Width="50" Height="50">
+            ToolTip="Add A COMMISSION" VerticalAlignment="Bottom" materialDesign:ShadowAssist.ShadowDepth="Depth3" HorizontalAlignment="Right" Width="50" Height="50" Click="Add_Contact_Click">
                 <materialDesign:PackIcon
                 Kind="Plus"
                 Height="24"
@@ -342,7 +338,7 @@
 
         <materialDesign:DialogHost Name="addhost"/>
 
-        <Image x:Name="sparkle"  IsHitTestVisible="False" Visibility="Hidden" gif:ImageBehavior.AnimatedSource="ALERT.gif"  Stretch="Fill" Width="100" Height="100" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+        <Image x:Name="sparkle"  IsHitTestVisible="False" Visibility="Hidden" gif:ImageBehavior.AnimatedSource="Resources/ALERT.gif"  Stretch="Fill" Width="100" Height="100" HorizontalAlignment="Right" VerticalAlignment="Bottom">
         </Image>
         
 

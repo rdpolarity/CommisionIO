@@ -45,8 +45,8 @@
     <Reference Include="Dragablz, Version=0.0.3.203, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dragablz.0.0.3.203\lib\net45\Dragablz.dll</HintPath>
     </Reference>
-    <Reference Include="LoadingIndicators.WPF, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LoadingIndicators.WPF.0.0.1\lib\LoadingIndicators.WPF.dll</HintPath>
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.6.4\lib\net46\MahApps.Metro.dll</HintPath>
@@ -73,18 +73,19 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
-    <Reference Include="PixelLab.Common, Version=6.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PixelLab.Common.6.0.2\lib\net40\PixelLab.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="PixelLab.Core, Version=6.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PixelLab.Core.6.0.2\lib\net4\PixelLab.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="PixelLab.Wpf, Version=6.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PixelLab.BOT.6.0.2\lib\net40\PixelLab.Wpf.dll</HintPath>
+    <Reference Include="MySql.Data, Version=8.0.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.12\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
@@ -111,40 +112,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commision Profile Window.xaml.cs">
-      <DependentUpon>Commision Profile Window.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="fav.xaml.cs">
-      <DependentUpon>fav.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="HomePage.xaml.cs">
+    <Compile Include="Classes\AnotherCommandImplementation.cs" />
+    <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="instances.cs" />
-    <Compile Include="NotEmptyValidationRule.cs" />
-    <Compile Include="NotifyPropertyChangedExtension.cs" />
-    <Compile Include="Pages\SampleDialog.xaml.cs" />
-    <Compile Include="Pages\SampleDialogViewModel.cs" />
-    <Compile Include="rowNumberConverter.cs" />
-    <Compile Include="TEST.xaml.cs">
-      <DependentUpon>TEST.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WindowSettings.xaml.cs">
+    <Compile Include="Classes\instances.cs" />
+    <Compile Include="Classes\NotEmptyValidationRule.cs" />
+    <Compile Include="Pages\WindowSettings.xaml.cs">
       <DependentUpon>WindowSettings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UpdateLog.xaml.cs">
+    <Compile Include="Pages\UpdateLog.xaml.cs">
       <DependentUpon>UpdateLog.xaml</DependentUpon>
     </Compile>
-    <Page Include="Commision Profile Window.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="fav.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HomePage.xaml">
+    <Page Include="Pages\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,15 +132,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CommisionTab.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AnotherCommandImplementation.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -168,30 +143,19 @@
     <Compile Include="Pages\CommisionPage.xaml.cs">
       <DependentUpon>CommisionPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CommisionTab.xaml.cs">
-      <DependentUpon>CommisionTab.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MyCustomColour.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Pages\ContactPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TEST.xaml">
+    <Page Include="Pages\WindowSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowSettings.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UpdateLog.xaml">
+    <Page Include="Pages\UpdateLog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -200,8 +164,8 @@
     <Compile Include="Pages\ContactPage.xaml.cs">
       <DependentUpon>ContactPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Palette.cs" />
-    <Compile Include="PaletteHelper.cs" />
+    <Compile Include="Classes\Palette.cs" />
+    <Compile Include="Classes\PaletteHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -229,13 +193,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icons8_User_50px_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icons8_User_50px_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="CommisionData.xml">
+    <Resource Include="Databases\CommisionData.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -244,38 +202,11 @@
     <Resource Include="icons8_paint.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="gray-polygonal-background-picture-id514230814.jpg" />
+    <Resource Include="Resources\Profile_Unknown.png" />
+    <Resource Include="Resources\ALERT.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="514230814-612x612.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="fkljkzc5.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="pineapples-tropical-leaves-background-pinapples-vintage-seamless-pattern-vector-51756053.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="aaa.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Commision.IO.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Profile_Unknown.png" />
-    <Resource Include="ALERT.gif" />
-    <Content Include="Commision.IO_1.avi" />
-    <Resource Include="loading-icon-gif-11.jpg.gif" />
-    <Resource Include="help message.gif" />
-    <Resource Include="ezgif.com-gif-maker.gif" />
-    <Resource Include="Loading over.gif" />
+    <Resource Include="Databases\ContactData.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Fody.3.0.4\build\Fody.targets" Condition="Exists('..\packages\Fody.3.0.4\build\Fody.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Fody.3.0.4\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.3.0.4\build\Fody.targets'))" />
-  </Target>
 </Project>

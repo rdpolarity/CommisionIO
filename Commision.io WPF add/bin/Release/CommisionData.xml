@@ -1,4 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <COMMISSIONs>
-  <entry ID="first" />
+  <entry ID="first">
+    <Title>Dark Forest</Title>
+    <Cost>$50</Cost>
+    <Client>Aiden Mellor</Client>
+    <Deadline>7/26/2018</Deadline>
+    <Notes>- Have a monochromatic colour scheme
+- Include autum like trees
+- Make sure it's spooky</Notes>
+    <Imagepath>E:\DESKTOP\Other\FOLIO\2017\Ornasia-Landscape.jpg</Imagepath>
+    <Outline>transparent</Outline>
+    <SetColour>#FFFFFFFF</SetColour>
+    <Title>[3D] Castle</Title>
+    <Cost>$25</Cost>
+    <Client>Joel Poggers</Client>
+    <Deadline>7/31/2018</Deadline>
+    <Notes>- Black and White shaded
+- Include a river
+- Make it medieval looking</Notes>
+    <Imagepath>E:\DESKTOP\Other\FOLIO\2017\Castle Render\BUILDING TIM1.png</Imagepath>
+    <Outline>
+    </Outline>
+    <SetColour>#FFFFFFFF</SetColour>
+    <Title>Mask Of Many</Title>
+    <Cost>$75</Cost>
+    <Client>AydieMe</Client>
+    <Deadline>8/29/2018</Deadline>
+    <Notes>- Orange Monochromatic
+- Spacey theme
+- Mask Above Planet</Notes>
+    <Imagepath>E:\DESKTOP\Other\FOLIO\2017\Mask of Many.png</Imagepath>
+    <Outline>transparent</Outline>
+    <SetColour>#FFFFFFFF</SetColour>
+  </entry>
 </COMMISSIONs>

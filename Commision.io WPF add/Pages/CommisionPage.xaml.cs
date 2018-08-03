@@ -34,57 +34,31 @@ namespace COMMISSION.io_WPF_add
 
         }
 
+        #region Variables
+
+        //File selection Dialog
+        OpenFileDialog op = new OpenFileDialog();
+
+        //Referance for currently open instance of MainWindow.xaml
+        MainWindow currentMainWindow = System.Windows.Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+
+        //Bindings for contact list template
         public string profiletitle { get; set; }
         public string profilename { get; set; }
         public string profilenote { get; set; }
         public string backgroundimage { get; set; }
         public string setopenheight { get; set; }
 
-        //SCROLLENABLE
+        #endregion
 
-        private void moveplease(object sender, MouseWheelEventArgs e)
-        {
-            ScrollViewer scv = (ScrollViewer)sender;
-            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
-            e.Handled = true;
-        }
+        #region sorting chips
 
-        //EVENTS
-
-        //Open COMMISSION Profile
-
-        public void lbTodoList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void btn_reciet_Click(object sender, RoutedEventArgs e)
-        {
-            int index = instances.compage.lbTodoList.SelectedIndex;
-            title = ((TodoItem) instances.compage.lbTodoList.Items[index]).Title;
-            client = ((TodoItem) instances.compage.lbTodoList.Items[index]).Client;
-            cost = ((TodoItem)instances.compage.lbTodoList.Items[index]).Cost;
-
-            get_receipt.Text = $"Thank you {client} for commisioning me! You've ordered \"{title}\" for a total cost of {cost}";
-        }
-
-
-
-        private void Client_Profile_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
-
-
-
-        //Sorting Chips
-
+        //Adds chip instances
         MaterialDesignThemes.Wpf.Chip addchip = new MaterialDesignThemes.Wpf.Chip();
         MaterialDesignThemes.Wpf.Chip addchip2 = new MaterialDesignThemes.Wpf.Chip();
         MaterialDesignThemes.Wpf.Chip addchip3 = new MaterialDesignThemes.Wpf.Chip();
 
+        //Chip click events
         private void sort_fav_Click(object sender, RoutedEventArgs e)
         {
             sort_fav.IsEnabled = false;
@@ -94,7 +68,7 @@ namespace COMMISSION.io_WPF_add
             addchip.DeleteClick += new RoutedEventHandler(sort_fav_delete);
             addchip.Margin = new Thickness(5,0,0,0);
 
-            addchip.Content = "Faviorate";
+            addchip.Content = "Favorate";
             add_chip_panel.Children.Add(addchip);
         }
 
@@ -142,83 +116,88 @@ namespace COMMISSION.io_WPF_add
             sort_date.IsEnabled = true;
         }
 
+        #endregion
 
-
-
-
-
-
-
-
-        OpenFileDialog op = new OpenFileDialog();
-
-        private void lbTodoList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        #region Commission Colour Mode (Working,Complete,Todo)
+        private void set_working_Click(object sender, RoutedEventArgs e)
         {
+            int index = instances.compage.lstbox_commission.SelectedIndex;
 
+            instances.compage.lstbox_commission.Items.Insert(index, new TodoItem()
+            {
+                Title = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Title,
+                Cost = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Cost,
+                Client = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Client,
+                Deadline = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Deadline,
+                Notes = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Notes,
+                imagepath = ((TodoItem)instances.compage.lstbox_commission.Items[index]).imagepath,
+                outline = "transparent",
+                setcolour = (SolidColorBrush)(new BrushConverter().ConvertFrom("#feffdd"))
+            });
+
+            instances.compage.lstbox_commission.Items.RemoveAt(index + 1);
         }
 
-        private void lbTodoList_MouseEnter(object sender, MouseEventArgs e)
+        private void set_complete_Click(object sender, RoutedEventArgs e)
         {
+            int index = instances.compage.lstbox_commission.SelectedIndex;
 
+            instances.compage.lstbox_commission.Items.Insert(index, new TodoItem()
+            {
+                Title = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Title,
+                Cost = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Cost,
+                Client = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Client,
+                Deadline = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Deadline,
+                Notes = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Notes,
+                imagepath = ((TodoItem)instances.compage.lstbox_commission.Items[index]).imagepath,
+                outline = "transparent",
+                setcolour = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ebffe8"))
+            });
+
+            instances.compage.lstbox_commission.Items.RemoveAt(index + 1);
         }
 
-        private void lbTodoList_MouseLeave(object sender, MouseEventArgs e)
+        private void set_todo_Click(object sender, RoutedEventArgs e)
         {
-        
+            int index = instances.compage.lstbox_commission.SelectedIndex;
+
+            instances.compage.lstbox_commission.Items.Insert(index, new TodoItem()
+            {
+                Title = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Title,
+                Cost = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Cost,
+                Client = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Client,
+                Deadline = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Deadline,
+                Notes = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Notes,
+                imagepath = ((TodoItem)instances.compage.lstbox_commission.Items[index]).imagepath,
+                outline = "transparent",
+                setcolour = Brushes.White
+            });
+
+            instances.compage.lstbox_commission.Items.RemoveAt(index + 1);
         }
+        #endregion
 
-        MainWindow currentMainWindow = System.Windows.Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-
-       
-
-
-
-        public void proflie_open_Click(object sender, RoutedEventArgs e)
-        {
-            currentMainWindow.profilehost.IsOpen = true;
-
-            int index = instances.compage.lbTodoList.SelectedIndex;
-
-
-            string titleget = ((TodoItem)instances.compage.lbTodoList.Items[index]).Title;
-            string clientget = ((TodoItem)instances.compage.lbTodoList.Items[index]).Client;
-            string noteget = ((TodoItem)instances.compage.lbTodoList.Items[index]).Notes;
-            string setbackgroundimage = ((TodoItem)instances.compage.lbTodoList.Items[index]).imagepath;
-            string costget = ((TodoItem)instances.compage.lbTodoList.Items[index]).Cost;
-            string deadlineget = ((TodoItem)instances.compage.lbTodoList.Items[index]).Deadline;
-
-            BitmapImage setimage = new BitmapImage(new Uri(setbackgroundimage));
-            ImageBrush newimage = new ImageBrush(setimage);
-
-            currentMainWindow.background_image.Source = setimage;
-            currentMainWindow.Host_Profile_Picture.Fill = newimage;
-
-            currentMainWindow.Profile_Title.Text = titleget;
-            currentMainWindow.Profile_Name.Text = clientget;
-            currentMainWindow.Profile_Notes.Text = noteget;
-            currentMainWindow.Profile_Cost.Text = costget;
-            currentMainWindow.Profile_Deadline.Text = deadlineget;
-        }
-
+        #region Index Sorting
+        //Method for adjusting index of items within the list
         public void MoveItem(int direction)
         {
             // Checking selected item
-            if (instances.compage.lbTodoList.SelectedItem == null || instances.compage.lbTodoList.SelectedIndex < 0)
+            if (instances.compage.lstbox_commission.SelectedItem == null || instances.compage.lstbox_commission.SelectedIndex < 0)
                 return; // No selected item - nothing to do
 
             // Calculate new index using move direction
-            int newIndex = instances.compage.lbTodoList.SelectedIndex + direction;
+            int newIndex = instances.compage.lstbox_commission.SelectedIndex + direction;
 
             // Checking bounds of the range
-            if (newIndex < 0 || newIndex >= instances.compage.lbTodoList.Items.Count)
+            if (newIndex < 0 || newIndex >= instances.compage.lstbox_commission.Items.Count)
                 return; // Index out of range - nothing to do
 
-            object selected = instances.compage.lbTodoList.SelectedItem;
+            object selected = instances.compage.lstbox_commission.SelectedItem;
 
             // Removing removable element
-            instances.compage.lbTodoList.Items.Remove(selected);
+            instances.compage.lstbox_commission.Items.Remove(selected);
             // Insert it in new position
-            instances.compage.lbTodoList.Items.Insert(newIndex, selected);
+            instances.compage.lstbox_commission.Items.Insert(newIndex, selected);
             // Restore selection
         }
 
@@ -231,67 +210,61 @@ namespace COMMISSION.io_WPF_add
         {
             MoveItem(1);
         }
+        #endregion
 
-        private void set_working_Click(object sender, RoutedEventArgs e)
+        //Allows use of the scroll wheel or mouse 3
+        private void moveplease(object sender, MouseWheelEventArgs e)
         {
-            int index = instances.compage.lbTodoList.SelectedIndex;
-
-            instances.compage.lbTodoList.Items.Insert(index, new TodoItem()
-            {
-                Title = ((TodoItem)instances.compage.lbTodoList.Items[index]).Title,
-                Cost = ((TodoItem)instances.compage.lbTodoList.Items[index]).Cost,
-                Client = ((TodoItem)instances.compage.lbTodoList.Items[index]).Client,
-                Deadline = ((TodoItem)instances.compage.lbTodoList.Items[index]).Deadline,
-                Notes = ((TodoItem)instances.compage.lbTodoList.Items[index]).Notes,
-                imagepath = ((TodoItem)instances.compage.lbTodoList.Items[index]).imagepath,
-                outline = "transparent",
-                setcolour = (SolidColorBrush)(new BrushConverter().ConvertFrom("#feffdd"))
-            });
-
-            instances.compage.lbTodoList.Items.RemoveAt(index + 1);
+            ScrollViewer scv = (ScrollViewer)sender;
+            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
+            e.Handled = true;
         }
 
-        private void set_complete_Click(object sender, RoutedEventArgs e)
+        //Receipt configeration and event
+        private void btn_reciet_Click(object sender, RoutedEventArgs e)
         {
-            int index = instances.compage.lbTodoList.SelectedIndex;
+            int index = instances.compage.lstbox_commission.SelectedIndex;
+            title = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Title;
+            client = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Client;
+            cost = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Cost;
 
-            instances.compage.lbTodoList.Items.Insert(index, new TodoItem()
-            {
-                Title = ((TodoItem)instances.compage.lbTodoList.Items[index]).Title,
-                Cost = ((TodoItem)instances.compage.lbTodoList.Items[index]).Cost,
-                Client = ((TodoItem)instances.compage.lbTodoList.Items[index]).Client,
-                Deadline = ((TodoItem)instances.compage.lbTodoList.Items[index]).Deadline,
-                Notes = ((TodoItem)instances.compage.lbTodoList.Items[index]).Notes,
-                imagepath = ((TodoItem)instances.compage.lbTodoList.Items[index]).imagepath,
-                outline = "transparent",
-                setcolour = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ebffe8"))
-            });
-
-            instances.compage.lbTodoList.Items.RemoveAt(index + 1);
+            get_receipt.Text = $"Thank you {client} for commisioning me! You've ordered \"{title}\" for a total cost of {cost}";
         }
 
-        private void set_todo_Click(object sender, RoutedEventArgs e)
+        //Profile Set Values on click event
+        public void proflie_open_Click(object sender, RoutedEventArgs e)
         {
-            int index = instances.compage.lbTodoList.SelectedIndex;
+            currentMainWindow.profilehost.IsOpen = true;
 
-            instances.compage.lbTodoList.Items.Insert(index, new TodoItem()
-            {
-                Title = ((TodoItem)instances.compage.lbTodoList.Items[index]).Title,
-                Cost = ((TodoItem)instances.compage.lbTodoList.Items[index]).Cost,
-                Client = ((TodoItem)instances.compage.lbTodoList.Items[index]).Client,
-                Deadline = ((TodoItem)instances.compage.lbTodoList.Items[index]).Deadline,
-                Notes = ((TodoItem)instances.compage.lbTodoList.Items[index]).Notes,
-                imagepath = ((TodoItem)instances.compage.lbTodoList.Items[index]).imagepath,
-                outline = "transparent",
-                setcolour = Brushes.White
-            });
+            int index = instances.compage.lstbox_commission.SelectedIndex;
 
-            instances.compage.lbTodoList.Items.RemoveAt(index + 1);
+            string titleget = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Title; // <--- These statements grab the info from the template bindings from an index value
+            string clientget = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Client;
+            string noteget = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Notes;
+            string setbackgroundimage = ((TodoItem)instances.compage.lstbox_commission.Items[index]).imagepath;
+            string costget = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Cost;
+            string deadlineget = ((TodoItem)instances.compage.lstbox_commission.Items[index]).Deadline;
+
+            BitmapImage setimage = new BitmapImage(new Uri(setbackgroundimage));
+            ImageBrush newimage = new ImageBrush(setimage);
+
+            //CurrentMainWindow is referencing the running instance of Mainwindow.xaml
+            currentMainWindow.background_image.Source = setimage;
+            currentMainWindow.Host_Profile_Picture.Fill = newimage;
+
+            currentMainWindow.Profile_Title.Text = titleget;
+            currentMainWindow.Profile_Name.Text = clientget;
+            currentMainWindow.Profile_Notes.Text = noteget;
+            currentMainWindow.Profile_Cost.Text = costget;
+            currentMainWindow.Profile_Deadline.Text = deadlineget;
         }
 
+
+        //This makes sure that the item is selected
+        //So when the index is referenced, it referances the intended commission item index
         private void ItemOnPreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            instances.compage.lbTodoList.UnselectAll();
+            instances.compage.lstbox_commission.UnselectAll();
             ((ListBoxItem)sender).IsSelected = true;
         }
     }
